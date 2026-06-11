@@ -1,0 +1,181 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Money is stored as integer mils (1 JOD = 1000 mils, 3 decimal places).
+
+model User {
+  id         String   @id @default(cuid())
+  name       String
+  nameAr     String
+  email      String   @unique
+  membership String   @default("Standard")
+  avatarUrl  String?
+  locale     String   @default("en")
+  kycStatus  String   @default("DUE") // DUE | IN_PROGRESS | SUBMITTED
+  kycDueAt   DateTime?
+  createdAt  DateTime @default(now())
+
+  accounts  Account[]
+  orders    GoldOrder[]
+  chats     ChatMessage[]
+  goals     SavingsGoal[]
+  kyc       KycProfile?
+  alerts    PriceAlert[]
+  tutorials TutorialProgress[]
+  insights  Insight[]
+}
+
+model Account {
+  id           String  @id @default(cuid())
+  userId       String
+  user         User    @relation(fields: [userId], references: [id])
+  name         String // "Regular Demand"
+  type         String // CHECKING | SAVINGS
+  numberMasked String // "4421"
+  iban         String
+  balanceMils  Int
+  currency     String  @default("JOD")
+
+  transactions Transaction[]
+  orders       GoldOrder[]
+}
+
+model Transaction {
+  id         String   @id @default(cuid())
+  accountId  String
+  account    Account  @relation(fields: [accountId], references: [id])
+  type       String // DEBIT | CREDIT
+  category   String // Groceries | Dining | Subscriptions | Utilities | Transfer | Salary | Gold | Bills | Cashback | Other
+  merchant   String
+  amountMils Int // always positive; type determines direction
+  note       String?
+  recurring  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  @@index([accountId, createdAt])
+}
+
+model GoldProduct {
+  id          String  @id @default(cuid())
+  sku         String  @unique
+  name        String // "PAMP Gold Minted Bar"
+  weightGrams Float
+  purity      String // "999.9"
+  brand       String // "PAMP"
+  imageUrl    String
+  stockQty    Int
+  premiumPct  Float // dealer premium over spot, e.g. 0.045
+
+  orders GoldOrder[]
+  alerts PriceAlert[]
+}
+
+model GoldPriceTick {
+  id               Int      @id @default(autoincrement())
+  pricePerGramMils Int
+  at               DateTime @default(now())
+}
+
+model GoldOrder {
+  id              String   @id @default(cuid())
+  orderNo         String   @unique
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  productId       String
+  product         GoldProduct @relation(fields: [productId], references: [id])
+  qty             Int
+  unitPriceMils   Int
+  totalMils       Int
+  fulfillment     String // DELIVERY | VAULT
+  sourceAccountId String
+  sourceAccount   Account  @relation(fields: [sourceAccountId], references: [id])
+  status          String   @default("PLACED") // PLACED | PROCESSING | DELIVERED | IN_VAULT
+  createdAt       DateTime @default(now())
+}
+
+model ChatMessage {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  sessionId String   @default("default")
+  role      String // user | rafiq
+  content   String
+  contentAr String?
+  actions   String? // JSON: [{label, labelAr, kind, params}]
+  meta      String? // JSON payload (e.g. report data)
+  createdAt DateTime @default(now())
+
+  @@index([userId, sessionId, createdAt])
+}
+
+model Insight {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  kind      String // SAVINGS_COMPARE | SUBSCRIPTION_AUDIT | GOAL_TIP
+  title     String
+  titleAr   String?
+  body      String
+  bodyAr    String?
+  dataJson  String
+  status    String   @default("NEW") // NEW | SEEN | ACTED | DISMISSED
+  createdAt DateTime @default(now())
+}
+
+model SavingsGoal {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  name        String // "New Car Goal"
+  targetMils  Int
+  savedMils   Int      @default(0)
+  monthlyMils Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model KycProfile {
+  id               String    @id @default(cuid())
+  userId           String    @unique
+  step             Int       @default(0) // last completed step 0..5
+  status           String    @default("IN_PROGRESS") // IN_PROGRESS | SUBMITTED
+  maritalStatus    String?
+  spouseName       String?
+  dependents       Int?
+  nationality      String?
+  employmentStatus String?
+  companyName      String?
+  jobTitle         String?
+  monthlyIncome    String?
+  submittedAt      DateTime?
+  updatedAt        DateTime  @updatedAt
+}
+
+model PriceAlert {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+  productId     String?
+  product       GoldProduct? @relation(fields: [productId], references: [id])
+  thresholdMils Int
+  direction     String // ABOVE | BELOW
+  active        Boolean  @default(true)
+  createdAt     DateTime @default(now())
+}
+
+model TutorialProgress {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  key         String // GOLD_BUY | KYC_UPDATE | HUB_INVEST_TIP | HOME_AI_TIP | GOLD_SMART_TIP
+  step        Int       @default(0)
+  dismissed   Boolean   @default(false)
+  completedAt DateTime?
+
+  @@unique([userId, key])
+}
