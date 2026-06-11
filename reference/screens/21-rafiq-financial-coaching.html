@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100..900&family=IBM+Plex+Serif:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(42, 42, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .kinetic-glow {
+            background: radial-gradient(circle at center, rgba(218, 83, 44, 0.15) 0%, rgba(218, 83, 44, 0) 70%);
+        }
+        .progress-gradient {
+            background: linear-gradient(90deg, #DA532C 0%, #ffb5a0 100%);
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#ffb955",
+                        "on-surface-variant": "#e1bfb6",
+                        "secondary": "#ffb5a0",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-fixed-dim": "#ffb955",
+                        "on-tertiary-container": "#3c2500",
+                        "surface-container": "#20201f",
+                        "background": "#131313",
+                        "primary-fixed": "#ffdbd1",
+                        "primary-container": "#f1643b",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "inverse-primary": "#ad330d",
+                        "secondary-fixed-dim": "#ffb5a0",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#3b0a00",
+                        "on-primary-fixed-variant": "#872100",
+                        "primary": "#ffb5a0",
+                        "on-background": "#e5e2e1",
+                        "on-secondary-container": "#ffaa92",
+                        "on-secondary": "#5f1500",
+                        "on-primary-fixed": "#3b0900",
+                        "surface-dim": "#131313",
+                        "outline-variant": "#59413b",
+                        "surface-variant": "#353535",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-tint": "#ffb5a0",
+                        "surface": "#131313",
+                        "on-secondary-fixed-variant": "#862200",
+                        "surface-bright": "#393939",
+                        "on-tertiary": "#452b00",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary-container": "#c68200",
+                        "outline": "#a88a82",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-container": "#541100",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed": "#ffddb4",
+                        "primary-fixed-dim": "#ffb5a0",
+                        "secondary-fixed": "#ffdbd1",
+                        "secondary-container": "#922601",
+                        "on-primary": "#601400",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed": "#291800",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#353535"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "stack-gap": "12px",
+                        "xs": "8px",
+                        "md": "16px",
+                        "container-padding": "20px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["IBM Plex Serif"],
+                        "label-sm": ["IBM Plex Sans"],
+                        "display-lg-mobile": ["IBM Plex Serif"],
+                        "display-lg": ["IBM Plex Serif"],
+                        "body-md": ["IBM Plex Sans"],
+                        "body-lg": ["IBM Plex Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="bg-background/80 backdrop-blur-xl border-b border-white/10 fixed top-0 w-full z-50 flex justify-between items-center px-container-padding py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="Rafiq AI Logo" class="w-full h-full object-cover" data-alt="A stylized, high-tech AI avatar icon with glowing orange accents on a sleek dark grey metallic base. The avatar has a friendly yet professional robotic appearance, reflecting a premium fintech assistant identity. The background is a soft gradient of deep charcoal and burnt orange, maintaining the sophisticated banking brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUTAjh5BoV5Pq3iAN8WOtQyEgpsWGvkMZbWP5ZscMk0cxXd8GT19ofyDMpEYm8FAdo4Dg_BoOx-9rb_Clm4meM96JKaDuYxHtq7Ig6zoEABAbaeWVg5BvcnRuN2QfTXMS9CruoBHt4T5Qj5CJrd-2Du6gNJNJQfNIvE_l7WtRGEoHLQSp2uimmyKXWZOfcgdEo6tRj7HWaQU8jHQMtFFV3xzFcMek2yWozwmB8tlLtGyE2crJyujHEJG1VM8b3tZVJgZc-Mtf2eBE"/>
+</div>
+<span class="font-display-lg-mobile text-display-lg-mobile lg:font-display-lg lg:text-display-lg text-primary-container uppercase tracking-tighter">RAFIQ</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">notifications</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-24 mb-24 px-container-padding space-y-lg relative">
+<!-- Kinetic Glow Backdrop -->
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-64 kinetic-glow -z-10 pointer-events-none"></div>
+<!-- Section Title -->
+<section class="space-y-base">
+<h1 class="font-headline-md text-headline-md-mobile text-on-surface">Financial Insights</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Your monthly financial trajectory</p>
+</section>
+<!-- Bento Grid: Category Breakdown -->
+<section class="grid grid-cols-2 gap-md">
+<!-- Main Spend Card -->
+<div class="col-span-2 glass-card rounded-xl p-lg relative overflow-hidden">
+<div class="flex justify-between items-start mb-md">
+<div>
+<p class="font-label-sm text-label-sm text-outline uppercase">Total Spending</p>
+<h2 class="font-headline-md text-headline-md text-primary">JOD 1,240.50</h2>
+</div>
+<div class="bg-primary-container/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+</div>
+</div>
+<!-- Mini Sparkline Area (CSS Visualization) -->
+<div class="h-16 w-full flex items-end gap-1">
+<div class="flex-1 bg-primary/20 h-[30%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/20 h-[45%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/40 h-[40%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/30 h-[60%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/60 h-[55%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/80 h-[80%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary h-[90%] rounded-t-sm"></div>
+</div>
+</div>
+<!-- Category Tiles -->
+<div class="glass-card rounded-xl p-md flex flex-col gap-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-tertiary text-lg">shopping_cart</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Groceries</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface">JOD 340</p>
+<div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-3/4"></div>
+</div>
+</div>
+<div class="glass-card rounded-xl p-md flex flex-col gap-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary text-lg">restaurant</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dining</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface">JOD 210</p>
+<div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-1/2"></div>
+</div>
+</div>
+<div class="glass-card rounded-xl p-md flex flex-col gap-sm col-span-2">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-lg">subscriptions</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Subscriptions</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">8 active</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface">JOD 85.00</p>
+</div>
+</section>
+<!-- Savings Goal Progress -->
+<section class="glass-card rounded-xl p-lg space-y-md border-l-4 border-primary">
+<div class="flex justify-between items-end">
+<div class="space-y-base">
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface">New Car Goal</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">JOD 15,000 / JOD 20,000</p>
+</div>
+<p class="font-display-lg-mobile text-display-lg-mobile text-primary">75%</p>
+</div>
+<div class="h-3 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full progress-gradient w-3/4 rounded-full transition-all duration-1000 ease-out" id="goal-progress"></div>
+</div>
+</section>
+<!-- Rafiq Bubble (AI Coaching) -->
+<section class="relative">
+<div class="glass-card rounded-2xl rounded-tl-none p-lg space-y-md border-primary/20">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-widest">Rafiq Assistant</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                    Great progress! Increasing your monthly contribution by <span class="text-primary font-bold">JOD 20</span> will hit your goal <span class="underline decoration-primary/50">2 months early</span>.
+                </p>
+<button class="w-full bg-primary-container text-on-primary-container py-md px-lg rounded-full font-label-sm text-label-sm flex items-center justify-center gap-sm active:scale-95 transition-transform">
+                    Set a New Goal
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Spacer for FAB/Safe Area -->
+<div class="h-12"></div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container/80 backdrop-blur-2xl border-t border-white/5 shadow-xl flex justify-around items-center h-20 px-xl">
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors scale-110 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors scale-110 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full p-3 scale-110 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors scale-110 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</nav>
+<script>
+        // Simple entry animation for the progress bar
+        window.addEventListener('load', () => {
+            const bar = document.getElementById('goal-progress');
+            bar.style.width = '0%';
+            setTimeout(() => {
+                bar.style.width = '75%';
+            }, 300);
+        });
+
+        // Add a subtle pulse to the Rafiq icon area
+        const rafiqIcon = document.querySelector('.material-symbols-outlined[style*="FILL\' 1"]');
+        if (rafiqIcon) {
+            setInterval(() => {
+                rafiqIcon.style.opacity = '0.7';
+                setTimeout(() => {
+                    rafiqIcon.style.opacity = '1';
+                }, 1000);
+            }, 2000);
+        }
+    </script>
+</body></html>

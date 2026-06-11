@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Rafiq AI - Task Execution</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100..900&family=IBM+Plex+Serif:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#ffb955",
+                    "on-surface-variant": "#e1bfb6",
+                    "secondary": "#ffb5a0",
+                    "inverse-surface": "#e5e2e1",
+                    "tertiary-fixed-dim": "#ffb955",
+                    "on-tertiary-container": "#3c2500",
+                    "surface-container": "#20201f",
+                    "background": "#131313",
+                    "primary-fixed": "#ffdbd1",
+                    "primary-container": "#f1643b",
+                    "on-surface": "#e5e2e1",
+                    "on-tertiary-fixed-variant": "#633f00",
+                    "inverse-primary": "#ad330d",
+                    "secondary-fixed-dim": "#ffb5a0",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed": "#3b0a00",
+                    "on-primary-fixed-variant": "#872100",
+                    "primary": "#ffb5a0",
+                    "on-background": "#e5e2e1",
+                    "on-secondary-container": "#ffaa92",
+                    "on-secondary": "#5f1500",
+                    "on-primary-fixed": "#3b0900",
+                    "surface-dim": "#131313",
+                    "outline-variant": "#59413b",
+                    "surface-variant": "#353535",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-tint": "#ffb5a0",
+                    "surface": "#131313",
+                    "on-secondary-fixed-variant": "#862200",
+                    "surface-bright": "#393939",
+                    "on-tertiary": "#452b00",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-container": "#c68200",
+                    "outline": "#a88a82",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#541100",
+                    "inverse-on-surface": "#313030",
+                    "tertiary-fixed": "#ffddb4",
+                    "primary-fixed-dim": "#ffb5a0",
+                    "secondary-fixed": "#ffdbd1",
+                    "secondary-container": "#922601",
+                    "on-primary": "#601400",
+                    "on-error": "#690005",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-tertiary-fixed": "#291800",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#353535"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "stack-gap": "12px",
+                    "xs": "8px",
+                    "md": "16px",
+                    "container-padding": "20px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "headline-md": ["IBM Plex Serif"],
+                    "label-sm": ["IBM Plex Sans"],
+                    "display-lg-mobile": ["IBM Plex Serif"],
+                    "display-lg": ["IBM Plex Serif"],
+                    "body-md": ["IBM Plex Sans"],
+                    "body-lg": ["IBM Plex Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        background-color: #131313;
+        color: #e5e2e1;
+        -webkit-tap-highlight-color: transparent;
+        overflow-x: hidden;
+      }
+      .kinetic-glow {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(218, 83, 44, 0.15) 0%, rgba(218, 83, 44, 0) 70%);
+        filter: blur(40px);
+        pointer-events: none;
+        z-index: 0;
+      }
+      .glass-card {
+        background: rgba(42, 42, 42, 0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .success-pulse {
+        animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+      }
+      @keyframes pulse-ring {
+        0% { transform: scale(.8); opacity: 0.5; }
+        50% { opacity: 1; }
+        100% { transform: scale(1.2); opacity: 0; }
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen font-body-md text-body-md">
+<!-- Kinetic Background Accents -->
+<div class="kinetic-glow top-1/4 -right-20"></div>
+<div class="kinetic-glow bottom-1/4 -left-20"></div>
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-container-padding py-md">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary-container/30">
+<img alt="Rafiq AI Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBykH2bhHD_Gzgi2qa_IomST5ZUXWhDcEHINjCEunu-x2M1cY4eWTpBkqxIId5jrhz_irIyoMHAIbODSzE7aIwlyu8xnWmb95S5O0A1SEgIIlSF6xYgr3-dM6REUQ60_qdJbzMmnSoPiNRg8b7H0-iUemVNEGLPIkrfVLae663sfMT73y-6GcKIzPZ3qeZP6Rdg3V4XKAl3zxoGpgxqzGLkplcwB7IG11veFW-D7eF0xOAFcmJoFnskC8eXypvjRn7McUxWIzOUJyM"/>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary-container uppercase tracking-tighter">RAFIQ</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center text-primary transition-transform active:scale-90">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-24 mb-32 px-container-padding flex flex-col items-center justify-center relative">
+<!-- Successful State Backdrop Animation -->
+<div class="w-full flex flex-col items-center" id="success-state">
+<!-- Success Icon & Checkmark -->
+<div class="relative mb-lg">
+<div class="absolute inset-0 success-pulse bg-tertiary/20 rounded-full"></div>
+<div class="w-24 h-24 rounded-full bg-tertiary flex items-center justify-center relative z-10 shadow-[0_0_30px_rgba(255,185,85,0.4)]">
+<span class="material-symbols-outlined text-on-tertiary text-5xl" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md-mobile text-center mb-base text-primary">Transfer Complete</h2>
+<p class="text-on-surface-variant text-center font-label-sm mb-xl">Rafiq has moved your funds successfully.</p>
+<!-- Structured Transaction Card -->
+<div class="w-full glass-card rounded-xl p-lg overflow-hidden relative">
+<!-- Sparkline Background Effect -->
+<div class="absolute inset-0 pointer-events-none opacity-20">
+<svg class="w-full h-full" viewbox="0 0 400 100">
+<path d="M0,80 Q50,70 100,50 T200,60 T300,20 T400,40" fill="none" stroke="#DA532C" stroke-width="2"></path>
+</svg>
+</div>
+<div class="relative z-10 space-y-md">
+<!-- From Account -->
+<div class="flex justify-between items-center">
+<div>
+<span class="block text-outline font-label-sm uppercase tracking-widest text-[10px]">From</span>
+<span class="block font-headline-md text-on-surface text-lg">Regular Demand JOD</span>
+</div>
+<span class="material-symbols-outlined text-outline">account_balance_wallet</span>
+</div>
+<!-- Divider/Arrow -->
+<div class="flex items-center gap-sm">
+<div class="flex-1 h-px bg-white/10"></div>
+<div class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">arrow_downward</span>
+</div>
+<div class="flex-1 h-px bg-white/10"></div>
+</div>
+<!-- To Account -->
+<div class="flex justify-between items-center">
+<div>
+<span class="block text-outline font-label-sm uppercase tracking-widest text-[10px]">To</span>
+<span class="block font-headline-md text-on-surface text-lg">Savings Account</span>
+</div>
+<span class="material-symbols-outlined text-tertiary">savings</span>
+</div>
+<!-- Amount Display -->
+<div class="mt-lg pt-lg border-t border-white/5 text-center">
+<span class="block text-outline font-label-sm uppercase mb-xs">Amount Transferred</span>
+<div class="flex items-baseline justify-center gap-xs">
+<span class="font-headline-md text-3xl text-on-surface">JOD</span>
+<span class="font-headline-md text-5xl text-on-surface tracking-tighter" style="font-family: 'IBM Plex Serif', serif;">500</span>
+</div>
+</div>
+</div>
+</div>
+<!-- FaceID / Security Confirmation (Hidden after success in real logic, but shown here for task execution UI) -->
+<div class="mt-xl w-full flex flex-col items-center gap-sm opacity-60">
+<div class="flex items-center gap-xs text-on-surface-variant bg-surface-container-high px-md py-sm rounded-full">
+<span class="material-symbols-outlined text-md">face</span>
+<span class="font-label-sm">Verified via FaceID</span>
+</div>
+</div>
+<!-- Secondary Actions -->
+<div class="w-full mt-xl flex gap-md">
+<button class="flex-1 py-md glass-card rounded-lg font-label-sm text-primary hover:bg-white/5 transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-sm">receipt_long</span>
+                    View Receipt
+                </button>
+<button class="flex-1 py-md bg-primary-container text-on-primary-container rounded-lg font-label-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-sm">share</span>
+                    Share
+                </button>
+</div>
+</div>
+</main>
+<!-- Rafiq Input Bar (Bottom Shell) -->
+<div class="fixed bottom-0 w-full z-50 bg-surface-container/80 backdrop-blur-2xl border-t border-white/5 pb-safe">
+<!-- Floating Rafiq Glow Area -->
+<div class="max-w-[350px] mx-auto py-sm px-md mb-2">
+<div class="relative w-full h-14 bg-surface-container-highest rounded-full border border-primary-container/20 flex items-center px-lg overflow-hidden group">
+<!-- Kinetic Interaction Pulse -->
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-100%] animate-[shimmer_2s_infinite]"></div>
+<div class="relative z-10 flex-1 flex items-center gap-md">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-on-surface-variant font-body-md text-sm italic">Rafiq is ready for your next request...</span>
+</div>
+<button class="relative z-10 w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+</div>
+<!-- Bottom Nav Cluster -->
+<nav class="flex justify-around items-center h-16 px-xl">
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-all duration-200">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full p-3 scale-110 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-all duration-200">
+<span class="material-symbols-outlined">insights</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-all duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</nav>
+</div>
+<style>
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+<script>
+        // Micro-interactions for tactile feel
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => {
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(10);
+                }
+            });
+        });
+
+        // Simple Arabic support toggle (Visual demonstration)
+        let isRTL = false;
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'r') {
+                isRTL = !isRTL;
+                document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+                document.documentElement.lang = isRTL ? 'ar' : 'en';
+            }
+        });
+    </script>
+</body></html>

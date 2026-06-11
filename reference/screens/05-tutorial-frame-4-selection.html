@@ -1,0 +1,244 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Kinetic - Product Selection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d6e3ff",
+                        "tertiary": "#405f91",
+                        "surface-tint": "#a04100",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#efddc8",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#695c4c",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "on-tertiary-fixed-variant": "#264778",
+                        "surface": "#f9f9f9",
+                        "tertiary-fixed-dim": "#a9c7ff",
+                        "primary-fixed": "#ffdbcc",
+                        "on-tertiary-container": "#093161",
+                        "on-surface-variant": "#5a4136",
+                        "surface-bright": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f1f1f1",
+                        "secondary-fixed-dim": "#d5c4b0",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f3f3f3",
+                        "on-secondary-fixed-variant": "#504535",
+                        "on-secondary-container": "#6d6150",
+                        "on-tertiary-fixed": "#001b3d",
+                        "tertiary-container": "#7b9ad0",
+                        "inverse-primary": "#ffb693",
+                        "on-background": "#1a1c1c",
+                        "background": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#a04100",
+                        "surface-container": "#eeeeee",
+                        "secondary-fixed": "#f2e0cb",
+                        "outline": "#8e7164",
+                        "on-secondary-fixed": "#231a0d",
+                        "outline-variant": "#e2bfb0",
+                        "surface-container-high": "#e8e8e8",
+                        "inverse-surface": "#2f3131",
+                        "on-primary-container": "#572000",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#351000",
+                        "primary-fixed-dim": "#ffb693",
+                        "on-surface": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#ff6b00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "0.75rem",
+                        "grid-gutter": "1rem",
+                        "element-padding": "1.25rem",
+                        "container-margin": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .orb-glow {
+            box-shadow: 0 0 20px rgba(160, 65, 0, 0.4);
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        .spotlight-active {
+            z-index: 60;
+            position: relative;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen">
+<!-- TOP APP BAR -->
+<header class="fixed top-0 w-full z-50 bg-surface flex justify-between items-center px-container-margin py-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional close-up studio portrait of a young adult with a friendly expression, set against a soft-focus minimalist office background. The lighting is warm and cinematic, highlighting the clean corporate aesthetic with soft orange and gray tones consistent with a modern fintech brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhE1hzY2MXZwt4SmurQBB4hj03r0iqnrm_RAUrsV7R9Qw_TmvIXGhVDuoO25c864redbahhuZDrSGnfR47_0sfhTe4R17vl0eWYa5Yjwrglvau9-X5Rb7sOEhBQ0F8yYvrMHQf_CAB-9k1fYOgFFj1ag6uF8slxWVRRkOLLXynnikTd51_SWGhLof27ebjTZIylABNNQwlg5OKgGCtsB8KlsVYZ-vqibnKXRXpNDcOB9rZMKBF3AOpmQ8Ky2l0qxNUdwhSm3hfQs8">
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary">Kinetic</h1>
+</div>
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-high rounded-full transition-colors active:scale-95">
+            notifications
+        </button>
+</header>
+<!-- MAIN CONTENT (Physical Gold Shop Background) -->
+<main class="pt-20 pb-24 px-container-margin">
+<!-- Live Price Indicator -->
+<div class="mb-6 flex justify-between items-center bg-surface-container-low p-4 rounded-xl">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">GOLD SPOT PRICE</p>
+<p class="font-headline-md text-headline-md text-primary">JOD 52.41/g</p>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] animate-spin">sync</span>
+<span class="text-[10px] font-medium">Live price, updated every 60s</span>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-2 gap-card-gap">
+<!-- Out of Stock Item 1 -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl shadow-sm opacity-50 relative overflow-hidden">
+<div class="absolute top-2 left-2 bg-error text-on-error text-[10px] font-bold px-2 py-0.5 rounded-full z-10">Out of stock</div>
+<img class="w-full aspect-square object-contain mb-3" data-alt="A macro photograph of a 1 gram PAMP gold minted bar showing intricate Swiss craftsmanship and the iconic Lady Fortuna design. The gold bar is presented on a clean white surface with professional studio lighting, reflecting a warm orange glow and sharp metallic textures typical of high-end financial products." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeG9s1H63Q8bQZDAq57AmxPr-Js8c1qhxzXZ4i3oE6ZsSQgeG3mWiAtsi-E0e-dKBcbGAohoDl5m3CH3XnNl1OWA1CLWSvJUU-k0wX3EyDlGxGZKJcpDCVIjPKwfDG-y7kn1F6WtaLIWNL2zFL9aZLCMatqqtDEV-rOzkrXtQJRJ7FQeSIT6qlpgzMFiN_P06dzYRZoxOFl4C38dAfCc2xBxL1cbdWih_cKD8ED3i3dPFqZbKpeF8U9_bGpNKd_mfAM5YtVMeevhw">
+<p class="font-label-sm text-label-sm text-on-surface-variant">PAMP Suisse</p>
+<h3 class="font-body-lg text-body-lg mb-1">1g Gold Bar</h3>
+<p class="text-primary font-bold">JOD 112.94</p>
+</div>
+<!-- Out of Stock Item 2 -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl shadow-sm opacity-50 relative overflow-hidden">
+<div class="absolute top-2 left-2 bg-error text-on-error text-[10px] font-bold px-2 py-0.5 rounded-full z-10">Out of stock</div>
+<img class="w-full aspect-square object-contain mb-3" data-alt="A high-resolution product shot of a 2.5 gram PAMP gold minted bar in its protective assay card. The lighting is crisp and clear, emphasizing the pure 999.9 gold luster and the detailed serial numbers. The composition is minimalist and premium, following a corporate fintech aesthetic with bright, airy tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZwRlpMOm7PfNmGrihfI4rtMFHF1QD7xGO_TbqNKBqSFXSex4XHZio1jp6N3Np_vBFRZOkmwBol7lckgIrk1RsES9cYsZnIsjxdb255XJKF9qIyQE5HbAl6SFU6e0cP4aAAHQS5jp6ibhlB6MC7QmNdaD_JRG0oQFKdrngM6Gsuxt-vdprmfiRcBRikZIMxHywh0-TYI71bMxWGxPyVZ_A2QFWAeCqxwtUAz6X9wFAYh7lFrYDunwTJSDBZAzel69MBgEhBeDAqKQ">
+<p class="font-label-sm text-label-sm text-on-surface-variant">PAMP Suisse</p>
+<h3 class="font-body-lg text-body-lg mb-1">2.5g Gold Bar</h3>
+<p class="text-primary font-bold">JOD 282.36</p>
+</div>
+<!-- SPOTLIGHT ITEM: 5g Gold Bar -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl shadow-sm relative spotlight-active">
+<img class="w-full aspect-square object-contain mb-3" data-alt="A premium 5 gram gold minted bar by PAMP Suisse, beautifully lit to show the shimmering metallic surface and the iconic Fortuna motif. The bar is staged in a high-end financial context, with soft shadows and a pristine white background, conveying security, wealth, and sophisticated investment opportunities." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZXhSc18T8aQSpSqcKx9POkTiCfvfEnUpGorNbX70kk622pAXBi-7psIyb30eqnsegWmcc_E8hFIPMtB-MtKS9ZzZ51RzKqBdbQWd54LsyZ0dWmwrNDtB3Xgv2gbFMjCSIun75sMEPPL53OntssrV_jpgcxUcqVkDx34pvjlq2A5NO27ugp9XhXA-6P4cl0t5gj3H6MKvT4XfMW15D97IMUbTLUR5KIiQMn0r27-hBNcd9dl9P1S5-OizROsVkfeR4JXmGMuXv2VI">
+<p class="font-label-sm text-label-sm text-on-surface-variant">PAMP Suisse</p>
+<h3 class="font-body-lg text-body-lg mb-1">5g Gold Bar</h3>
+<p class="text-primary font-bold mb-4">JOD 564.727</p>
+<!-- Plus Button -->
+<button class="absolute bottom-4 right-4 w-10 h-10 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<!-- Next Item (Blurred/Scrimmed) -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl shadow-sm opacity-50">
+<img class="w-full aspect-square object-contain mb-3" data-alt="A 10 gram gold minted bar from PAMP Suisse, capturing the luxurious glow of solid gold under professional studio lights. The composition is centered and clean, following a modern corporate style with high contrast and sharp details on the hallmark and security features, set against a neutral, bright gray background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxYwwn_dHd3RhNToRnJZN75HB1FI7QkSVs8bf4jrl56no21-p-ZxY8B33z7M_giuBDLnvNNiQTTc6XRbGwsF6t3MdHmB63WVOQZkcvPDRaQdBhmT9_ofX5grEsiwNV8q23HK5HRhPiZkKeAQzFOtujN6ZgkQXG47R8ae7HIo_MGWQZAZ3dndCckfj3kjqEQSP9n1Ggz81Q4gihfA85zmYtBJjcdttHmOvwPm8J52vo2bzR_2iKOHtfoop7tulUIQthwkmIXKFYIWo">
+<p class="font-label-sm text-label-sm text-on-surface-variant">PAMP Suisse</p>
+<h3 class="font-body-lg text-body-lg mb-1">10g Gold Bar</h3>
+<p class="text-primary font-bold">JOD 1,129.45</p>
+</div>
+</div>
+</main>
+<!-- SCRIM LAYER -->
+<div class="fixed inset-0 bg-black/30 z-50 pointer-events-none"></div>
+<!-- ORB AND SPEECH BUBBLE OVERLAY -->
+<div class="fixed inset-0 z-[70] pointer-events-none">
+<div class="relative w-full h-full max-w-md mx-auto">
+<!-- The Orb -->
+<div class="absolute left-[calc(50%+40px)] top-[58%] -translate-y-1/2 pointer-events-auto">
+<div class="w-12 h-12 bg-primary rounded-full orb-glow flex items-center justify-center">
+<div class="w-8 h-8 bg-primary-container rounded-full animate-ping absolute opacity-20"></div>
+<div class="w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<!-- Speech Bubble -->
+<div class="absolute left-container-margin right-container-margin top-[68%] pointer-events-auto">
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-xl border border-primary/10 relative">
+<!-- Triangle pointer -->
+<div class="absolute -top-2 right-16 w-4 h-4 bg-surface-container-lowest rotate-45 border-t border-l border-primary/10"></div>
+<p class="text-on-surface font-body-md leading-relaxed">The 1g and 2.5g bars are currently unavailable. <span class="font-bold text-primary">The 5g bar</span> is the most accessible option at <span class="font-bold">JOD 564.727</span>. <br><br>Select the add icon to continue.</p>
+<!-- Footer / Progress -->
+<div class="mt-6 flex justify-between items-center">
+<div class="flex gap-1.5">
+<div class="w-2 h-2 rounded-full bg-primary/20"></div>
+<div class="w-5 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-primary/20"></div>
+<div class="w-2 h-2 rounded-full bg-primary/20"></div>
+</div>
+<button class="text-primary font-bold px-4 py-2 hover:bg-primary/5 rounded-lg pointer-events-auto transition-colors">
+                            SKIP
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- BOTTOM NAV BAR -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest flex justify-around items-center h-16 px-4 pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.04)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+<span class="font-label-sm text-label-sm">Payment</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="flower">local_florist</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined" data-icon="grid_view" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-label-sm text-label-sm">Hub</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for the "add" button to simulate selection
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const ripple = document.createElement('div');
+                ripple.classList.add('absolute', 'inset-0', 'bg-white/20', 'rounded-full', 'animate-ping');
+                btn.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    </script>
+
+
+</body></html>

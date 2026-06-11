@@ -1,0 +1,236 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>Kinetic - Personal Information</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrim-overlay {
+            background: rgba(26, 28, 28, 0.4);
+            backdrop-filter: blur(4px);
+        }
+        .spotlight {
+            box-shadow: 0 0 0 9999px rgba(26, 28, 28, 0.7);
+            z-index: 60;
+        }
+        .orb-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .progress-mask {
+            mask-image: linear-gradient(to right, black 60%, transparent 60%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#a9c7ff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-fixed": "#231a0d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-container": "#572000",
+                        "surface-container-low": "#f3f3f3",
+                        "secondary-container": "#efddc8",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "tertiary-fixed": "#d6e3ff",
+                        "background": "#f9f9f9",
+                        "surface-tint": "#a04100",
+                        "secondary-fixed": "#f2e0cb",
+                        "on-tertiary-fixed-variant": "#264778",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-variant": "#e2e2e2",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-surface": "#2f3131",
+                        "surface": "#f9f9f9",
+                        "primary": "#a04100",
+                        "on-secondary": "#ffffff",
+                        "outline": "#8e7164",
+                        "on-primary-fixed": "#351000",
+                        "on-secondary-container": "#6d6150",
+                        "inverse-primary": "#ffb693",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary": "#695c4c",
+                        "on-surface": "#1a1c1c",
+                        "error": "#ba1a1a",
+                        "tertiary": "#405f91",
+                        "on-tertiary-fixed": "#001b3d",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-container": "#093161",
+                        "primary-fixed": "#ffdbcc",
+                        "primary-container": "#ff6b00",
+                        "outline-variant": "#e2bfb0",
+                        "secondary-fixed-dim": "#d5c4b0",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#7b9ad0",
+                        "on-secondary-fixed-variant": "#504535",
+                        "on-surface-variant": "#5a4136"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "0.75rem",
+                        "grid-gutter": "1rem",
+                        "container-margin": "1rem",
+                        "element-padding": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- Top AppBar (From Shared Components) -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim flex justify-between items-center px-container-margin py-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHOqkAdyaSbjMDx4N48zPwgqVNftdIDSDxet4QK_rtt3ycJCsDsNcpJIXVVmWD2Sww-pykgHV9qgQm0INW3bNLpua0-kDT_ZJdKVZ_EsfO8vj1pW6AdSlnkqVadP1f9YobUSnUPI7FtzOFhN-oxmJ2EiVVupFq_Pl5s2_SB_4uv8gaXLJCgFSipNvu-nRpVB_BU17o5jPKmrueE0imCV6vF4WNI7JisGuYP20x5jq4TvQYclqNwtD4SkKxumW7KtNJsfE_LxHjKOw">
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-inverse-primary">Kinetic</h1>
+</div>
+<button class="material-symbols-outlined text-primary dark:text-inverse-primary hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors p-2 rounded-full active:scale-95 transition-transform duration-150" data-icon="notifications">notifications</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-20 pb-24 px-container-margin">
+<!-- Progress Indicator -->
+<div class="mb-8">
+<div class="flex justify-between items-end mb-2">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Step 3 of 5</p>
+<p class="font-label-sm text-label-sm text-primary font-bold">Personal Details</p>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-3/5 rounded-full transition-all duration-500"></div>
+</div>
+</div>
+<!-- Form Section -->
+<div class="space-y-6">
+<section class="bg-surface-container-lowest p-element-padding rounded-xl shadow-sm border border-surface-variant/30">
+<h2 class="font-headline-md text-headline-md mb-4 text-on-surface">Identification</h2>
+<div class="space-y-4">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">Full Legal Name</label>
+<input class="bg-surface-container-low border-none rounded-lg p-3 text-on-surface-variant font-body-lg text-body-lg cursor-not-allowed" disabled="" type="text" value="Alex Rivera">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">Date of Birth</label>
+<input class="bg-surface-container-low border-none rounded-lg p-3 text-on-surface-variant font-body-lg text-body-lg cursor-not-allowed" disabled="" type="text" value="May 14, 1992">
+</div>
+</div>
+</section>
+<!-- Spotlighted Marital Status Section -->
+<section class="relative z-[70] bg-surface-container-lowest p-element-padding rounded-xl shadow-lg spotlight" id="marital-status-section">
+<h2 class="font-headline-md text-headline-md mb-4 text-on-surface">Marital Status</h2>
+<div class="grid grid-cols-2 gap-3">
+<!-- Single -->
+<label class="flex items-center justify-between p-4 rounded-xl border-2 border-surface-variant bg-surface cursor-pointer hover:border-primary-container/50 transition-all">
+<span class="font-body-lg text-body-lg">Single</span>
+<input class="w-5 h-5 text-primary focus:ring-primary border-outline" name="marital_status" type="radio" value="single">
+</label>
+<!-- Married (Selected Focus) -->
+<label class="flex items-center justify-between p-4 rounded-xl border-2 border-primary-container bg-secondary-container/20 cursor-pointer shadow-md transition-all">
+<span class="font-body-lg text-body-lg font-bold text-primary">Married</span>
+<input checked="" class="w-5 h-5 text-primary focus:ring-primary border-primary" name="marital_status" type="radio" value="married">
+</label>
+<!-- Divorced -->
+<label class="flex items-center justify-between p-4 rounded-xl border-2 border-surface-variant bg-surface cursor-pointer hover:border-primary-container/50 transition-all">
+<span class="font-body-lg text-body-lg">Divorced</span>
+<input class="w-5 h-5 text-primary focus:ring-primary border-outline" name="marital_status" type="radio" value="divorced">
+</label>
+<!-- Widowed -->
+<label class="flex items-center justify-between p-4 rounded-xl border-2 border-surface-variant bg-surface cursor-pointer hover:border-primary-container/50 transition-all">
+<span class="font-body-lg text-body-lg">Widowed</span>
+<input class="w-5 h-5 text-primary focus:ring-primary border-outline" name="marital_status" type="radio" value="widowed">
+</label>
+</div>
+</section>
+<section class="bg-surface-container-lowest p-element-padding rounded-xl shadow-sm border border-surface-variant/30 opacity-50 pointer-events-none transition-opacity duration-300">
+<h2 class="font-headline-md text-headline-md mb-4 text-on-surface">Spouse Information</h2>
+<div class="space-y-4">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">Spouse's Full Name</label>
+<input class="bg-surface-container-low border-none rounded-lg p-3 text-on-surface-variant font-body-lg text-body-lg italic" placeholder="Entering after status selection..." type="text">
+</div>
+</div>
+</section>
+</div>
+<!-- Next Action Button -->
+<div class="mt-10 flex justify-end">
+<button class="bg-primary-container text-white px-10 py-4 rounded-full font-headline-md text-headline-md shadow-lg active:scale-95 transition-transform hover:brightness-110">
+                Next
+            </button>
+</div>
+</main>
+<!-- AI Orb Interaction Layer -->
+<div class="fixed inset-0 z-[65] pointer-events-none">
+<div class="absolute bottom-32 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 w-[85%] max-w-md pointer-events-auto">
+<!-- Glassmorphism Bubble -->
+<div class="bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/20 orb-float relative">
+<!-- Orb Graphic -->
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-gradient-to-tr from-primary to-primary-fixed-dim shadow-[0_0_20px_rgba(160,65,0,0.4)] flex items-center justify-center">
+<div class="w-8 h-8 rounded-full bg-white/20 animate-pulse"></div>
+</div>
+<p class="text-on-background font-body-lg text-body-lg text-center mt-4">Please provide your marital status to ensure accurate record keeping. If applicable, complete the spouse information section below.</p>
+<!-- Tooltip arrow -->
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white/90 rotate-45 border-r border-b border-white/20"></div>
+</div>
+</div>
+</div>
+<!-- Scrim (Inactive components darkened) -->
+<div class="fixed inset-0 z-50 scrim-overlay pointer-events-none"></div>
+<!-- Nav Suppressed (Linear Transactional Flow) -->
+<script>
+        // Micro-interaction for radio selections
+        const radioLabels = document.querySelectorAll('label');
+        radioLabels.forEach(label => {
+            label.addEventListener('click', () => {
+                radioLabels.forEach(l => {
+                    l.classList.remove('border-primary-container', 'bg-secondary-container/20', 'shadow-md');
+                    l.classList.add('border-surface-variant', 'bg-surface');
+                    l.querySelector('span').classList.remove('font-bold', 'text-primary');
+                });
+                label.classList.remove('border-surface-variant', 'bg-surface');
+                label.classList.add('border-primary-container', 'bg-secondary-container/20', 'shadow-md');
+                label.querySelector('span').classList.add('font-bold', 'text-primary');
+            });
+        });
+    </script>
+
+
+
+
+</body></html>

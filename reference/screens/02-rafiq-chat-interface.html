@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Rafiq AI - Chat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&amp;family=IBM+Plex+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#ffb955",
+                    "on-surface-variant": "#e1bfb6",
+                    "secondary": "#ffb5a0",
+                    "inverse-surface": "#e5e2e1",
+                    "tertiary-fixed-dim": "#ffb955",
+                    "on-tertiary-container": "#3c2500",
+                    "surface-container": "#20201f",
+                    "background": "#131313",
+                    "primary-fixed": "#ffdbd1",
+                    "primary-container": "#f1643b",
+                    "on-surface": "#e5e2e1",
+                    "on-tertiary-fixed-variant": "#633f00",
+                    "inverse-primary": "#ad330d",
+                    "secondary-fixed-dim": "#ffb5a0",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed": "#3b0a00",
+                    "on-primary-fixed-variant": "#872100",
+                    "primary": "#ffb5a0",
+                    "on-background": "#e5e2e1",
+                    "on-secondary-container": "#ffaa92",
+                    "on-secondary": "#5f1500",
+                    "on-primary-fixed": "#3b0900",
+                    "surface-dim": "#131313",
+                    "outline-variant": "#59413b",
+                    "surface-variant": "#353535",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-tint": "#ffb5a0",
+                    "surface": "#131313",
+                    "on-secondary-fixed-variant": "#862200",
+                    "surface-bright": "#393939",
+                    "on-tertiary": "#452b00",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-container": "#c68200",
+                    "outline": "#a88a82",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#541100",
+                    "inverse-on-surface": "#313030",
+                    "tertiary-fixed": "#ffddb4",
+                    "primary-fixed-dim": "#ffb5a0",
+                    "secondary-fixed": "#ffdbd1",
+                    "secondary-container": "#922601",
+                    "on-primary": "#601400",
+                    "on-error": "#690005",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-tertiary-fixed": "#291800",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#353535"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "stack-gap": "12px",
+                    "xs": "8px",
+                    "md": "16px",
+                    "container-padding": "20px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "headline-md": ["IBM Plex Serif"],
+                    "label-sm": ["IBM Plex Sans"],
+                    "display-lg-mobile": ["IBM Plex Serif"],
+                    "display-lg": ["IBM Plex Serif"],
+                    "body-md": ["IBM Plex Sans"],
+                    "body-lg": ["IBM Plex Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .kinetic-glow {
+            background: radial-gradient(circle, rgba(218, 83, 44, 0.15) 0%, rgba(218, 83, 44, 0) 70%);
+        }
+        .glass-panel {
+            background: rgba(42, 42, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .message-bubble-user {
+            background-color: #f1643b;
+            color: #541100;
+            border-bottom-right-radius: 4px;
+        }
+        .message-bubble-ai {
+            background-color: #2a2a2a;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom-left-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #353535;
+            border-radius: 10px;
+        }
+        @keyframes pulse-glow {
+            0% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.1); opacity: 0.25; }
+            100% { transform: scale(1); opacity: 0.15; }
+        }
+        .animate-kinetic {
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-container-padding py-md">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="Rafiq AI Logo" class="w-8 h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT4Vtid_JxhQLXM_jao7i1mkBHjvKTD5Hah1VYSPB4ris6ZIbSE_icoFljEJEZZTixNPx7MLwe1DuKZIOC1KIHQlFQp21L-Cjf6SfvdbjK7Kizlem1bbGsh4QcS--qQhAH_Wih33f3jPu9O3RXhPg0ciAYwyiyynbrzknMf8374nFSLIEA7rS_D49Oi4UQyLEaSiBIW-qJtnWiNrawKa_UItZjaYY9ALYj8yLh5dYJtJGy6ENWnZt4ADTfgPtyw7fOEY2INo2Xcf0"/>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary-container uppercase tracking-tighter">RAFIQ</h1>
+</div>
+<button class="text-primary hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Chat Canvas -->
+<main class="relative h-screen pt-[88px] pb-[160px] flex flex-col px-container-padding overflow-y-auto custom-scrollbar">
+<!-- Kinetic Glow background element -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] kinetic-glow rounded-full blur-3xl animate-kinetic pointer-events-none -z-10"></div>
+<div class="space-y-lg flex flex-col">
+<!-- Date Divider -->
+<div class="flex justify-center my-md">
+<span class="text-label-sm font-label-sm text-outline px-md py-base bg-surface-container-low rounded-full">Yesterday</span>
+</div>
+<!-- User Message -->
+<div class="flex flex-col items-end gap-xs max-w-[85%] self-end">
+<div class="message-bubble-user p-md rounded-2xl shadow-lg">
+<p class="font-body-md text-body-md">Why was I charged SAR 150 yesterday?</p>
+</div>
+<span class="text-[11px] text-outline px-xs">11:04 PM</span>
+</div>
+<!-- AI Message -->
+<div class="flex flex-col items-start gap-xs max-w-[90%] self-start">
+<div class="flex gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-white/5 flex items-center justify-center flex-shrink-0 mt-base">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="message-bubble-ai p-md rounded-2xl shadow-xl flex flex-col gap-md">
+<p class="font-body-md text-body-md text-on-surface">That was your Netflix subscription renewal. It appears the monthly fee was processed at 11:00 PM yesterday.</p>
+<!-- Inline Action Button -->
+<button class="flex items-center justify-center gap-xs bg-primary-container text-on-primary-container py-sm px-lg rounded-xl font-label-sm text-label-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="description">description</span>
+                            View Report
+                        </button>
+</div>
+</div>
+<span class="text-[11px] text-outline ml-10">11:05 PM</span>
+</div>
+</div>
+</main>
+<!-- Bottom Interaction Area -->
+<section class="fixed bottom-0 w-full z-50 pb-safe">
+<!-- Quick Reply Chips -->
+<div class="flex gap-sm px-container-padding pb-md overflow-x-auto no-scrollbar">
+<button class="whitespace-nowrap flex items-center gap-xs px-lg py-sm bg-surface-container-high border border-white/5 rounded-full font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors active:scale-95">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                Transfer
+            </button>
+<button class="whitespace-nowrap flex items-center gap-xs px-lg py-sm bg-surface-container-high border border-white/5 rounded-full font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors active:scale-95">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                Pay Bill
+            </button>
+<button class="whitespace-nowrap flex items-center gap-xs px-lg py-sm bg-surface-container-high border border-white/5 rounded-full font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors active:scale-95">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                Check Balance
+            </button>
+</div>
+<!-- Rafiq Input Bar -->
+<div class="glass-panel mx-container-padding mb-md rounded-[28px] p-base flex items-center gap-sm">
+<button class="w-11 h-11 flex items-center justify-center text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="attach_file">attach_file</span>
+</button>
+<input class="flex-grow bg-transparent border-none focus:ring-0 text-body-md text-on-surface placeholder:text-outline py-sm" placeholder="Message Rafiq..." type="text"/>
+<div class="flex items-center gap-xs pr-sm">
+<button class="w-11 h-11 flex items-center justify-center text-primary-container relative">
+<!-- Subtle Pulse background for mic -->
+<span class="absolute inset-0 bg-primary-container/10 rounded-full animate-ping opacity-25"></span>
+<span class="material-symbols-outlined" data-icon="mic" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+</div>
+<!-- Bottom Navigation Shell (Invisible on Mobile Focus, showing standard labels for clarity) -->
+<nav class="flex justify-around items-center h-20 px-xl bg-surface-container/80 backdrop-blur-2xl border-t border-white/5 shadow-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full p-3 scale-110 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble" data-weight="fill" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</a>
+</nav>
+</section>
+<script>
+        // Micro-interaction for input field focusing
+        const input = document.querySelector('input');
+        const inputContainer = input.closest('.glass-panel');
+        
+        input.addEventListener('focus', () => {
+            inputContainer.style.borderColor = 'rgba(241, 100, 59, 0.5)';
+            inputContainer.style.boxShadow = '0 0 20px rgba(241, 100, 59, 0.1)';
+        });
+
+        input.addEventListener('blur', () => {
+            inputContainer.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            inputContainer.style.boxShadow = 'none';
+        });
+
+        // Hide Bottom Nav on Scroll Down for better canvas space
+        let lastScrollTop = 0;
+        const main = document.querySelector('main');
+        main.addEventListener('scroll', () => {
+            let st = main.scrollTop;
+            if (st > lastScrollTop) {
+                // Scroll down
+                // Potentially hide specific non-critical floating elements here
+            }
+            lastScrollTop = st;
+        });
+    </script>
+</body></html>

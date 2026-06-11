@@ -1,0 +1,306 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#d6e3ff",
+                    "tertiary": "#405f91",
+                    "surface-tint": "#a04100",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#efddc8",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#695c4c",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e2e2e2",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "on-tertiary-fixed-variant": "#264778",
+                    "surface": "#f9f9f9",
+                    "tertiary-fixed-dim": "#a9c7ff",
+                    "primary-fixed": "#ffdbcc",
+                    "on-tertiary-container": "#093161",
+                    "on-surface-variant": "#5a4136",
+                    "surface-bright": "#f9f9f9",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f1f1f1",
+                    "secondary-fixed-dim": "#d5c4b0",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f3f3f3",
+                    "on-secondary-fixed-variant": "#504535",
+                    "on-secondary-container": "#6d6150",
+                    "on-tertiary-fixed": "#001b3d",
+                    "tertiary-container": "#7b9ad0",
+                    "inverse-primary": "#ffb693",
+                    "on-background": "#1a1c1c",
+                    "background": "#f9f9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#a04100",
+                    "surface-container": "#eeeeee",
+                    "secondary-fixed": "#f2e0cb",
+                    "outline": "#8e7164",
+                    "on-secondary-fixed": "#231a0d",
+                    "outline-variant": "#e2bfb0",
+                    "surface-container-high": "#e8e8e8",
+                    "inverse-surface": "#2f3131",
+                    "on-primary-container": "#572000",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#351000",
+                    "primary-fixed-dim": "#ffb693",
+                    "on-surface": "#1a1c1c",
+                    "surface-dim": "#dadada",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#ff6b00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "card-gap": "0.75rem",
+                    "grid-gutter": "1rem",
+                    "element-padding": "1.25rem",
+                    "container-margin": "1rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        @keyframes pulse-orange {
+            0% { box-shadow: 0 0 0 0 rgba(160, 65, 0, 0.4); }
+            70% { box-shadow: 0 0 0 12px rgba(160, 65, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(160, 65, 0, 0); }
+        }
+        .spotlight-active {
+            z-index: 100;
+            position: relative;
+            animation: pulse-orange 2s infinite;
+            border: 4px solid #ff6b00;
+        }
+        .orb-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .scrim {
+            background: rgba(0, 0, 0, 0.3);
+            pointer-events: auto;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-20">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-40 bg-surface flex justify-between items-center px-container-margin py-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmms47nIgf_MnN67n3CJiIppstm-SDOnsnswqP3ZEwX_jEcnEHnIBghxjn_42arPz4txm_LlgUw2mmKshdsH5yDQRBeJDy-5W8d4SS5Kgcsl7epjbm_wqDkRVjL-lpCcMs3E-Xpvu5-9wDJs-LpIODFbgZMI-FPj2XW83oR6w-_4DF59dRud5s-8i3mqlut63u2dtffjbP7H3INmEIxQ3XPHs1Ked1_7cNdGOpeScJupVTVqqFQrEsKwedVY0e836NNSHahjHJ_YE">
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary">Kinetic</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+</header>
+<!-- Main Content (Hub View) -->
+<main class="pt-20 px-container-margin space-y-6">
+<!-- Search -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full h-12 pl-12 pr-4 bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-primary text-body-md font-body-md" placeholder="Search services..." type="text">
+</div>
+<!-- Section: Daily Utilities -->
+<section>
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Daily Utilities</h2>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="flex flex-col items-center gap-2">
+<div class="w-14 h-14 bg-surface-container-lowest rounded-xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Bills</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-14 h-14 bg-surface-container-lowest rounded-xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary">send_to_mobile</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Airtime</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-14 h-14 bg-surface-container-lowest rounded-xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary">qr_code_scanner</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Scan</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-14 h-14 bg-surface-container-lowest rounded-xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">History</span>
+</div>
+</div>
+</section>
+<!-- Section: Investments -->
+<section>
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Investments</h2>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Stocks Card -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl shadow-sm border border-outline-variant/10 relative overflow-hidden">
+<div class="absolute -right-2 -top-2 opacity-10">
+<span class="material-symbols-outlined text-6xl">monitoring</span>
+</div>
+<span class="material-symbols-outlined text-tertiary mb-3">trending_up</span>
+<h3 class="font-body-lg text-body-lg text-on-surface">Stocks</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Global markets</p>
+</div>
+<!-- Gold Card (Spotlight Target) -->
+<div class="spotlight-active bg-surface-container-lowest p-element-padding rounded-xl shadow-sm border border-outline-variant/10 relative overflow-hidden" id="gold-tile">
+<div class="absolute -right-2 -top-2 opacity-10">
+<span class="material-symbols-outlined text-6xl">auto_awesome</span>
+</div>
+<span class="material-symbols-outlined text-primary-container mb-3" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<h3 class="font-body-lg text-body-lg text-on-surface">Gold</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">99.9% Purity</p>
+<div class="absolute top-2 right-2">
+<span class="bg-primary-container text-on-primary-container font-label-sm text-[10px] px-1.5 py-0.5 rounded-full">New</span>
+</div>
+</div>
+<!-- Crypto Card -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl shadow-sm border border-outline-variant/10 relative overflow-hidden">
+<span class="material-symbols-outlined text-secondary mb-3">currency_bitcoin</span>
+<h3 class="font-body-lg text-body-lg text-on-surface">Crypto</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Buy &amp; Sell</p>
+</div>
+<!-- Savings Card -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl shadow-sm border border-outline-variant/10 relative overflow-hidden">
+<span class="material-symbols-outlined text-primary mb-3">savings</span>
+<h3 class="font-body-lg text-body-lg text-on-surface">Savings</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Fixed returns</p>
+</div>
+</div>
+</section>
+<!-- Section: Cards & Accounts -->
+<section class="pb-8">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Lifestyle</h2>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">airplane_ticket</span>
+</div>
+<div class="flex-1">
+<h4 class="font-body-lg text-body-lg">Travel Booking</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Exclusive flight deals</p>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+</section>
+</main>
+<!-- Bottom Nav Bar -->
+<nav class="fixed bottom-0 w-full z-40 h-16 bg-surface-container-lowest rounded-t-xl shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.04)] flex justify-around items-center px-4 pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="">Payment</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined">local_florist</span>
+<span class="">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary font-bold font-label-sm text-label-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="">Hub</span>
+</div>
+</nav>
+<!-- Tutorial Layer -->
+<div class="fixed inset-0 z-50 overflow-hidden pointer-events-none">
+<!-- Scrim -->
+<div class="absolute inset-0 scrim pointer-events-auto"></div>
+<!-- Spotlight Overlay (CSS-based mask alternative using z-index logic) -->
+<!-- Content Focus Container -->
+<div class="relative h-full w-full flex flex-col justify-center items-center px-6">
+<!-- The Orb and Speech Bubble positioned relative to the highlighted Gold Tile -->
+<!-- Note: In a real app, this would be dynamically calculated. Here we position near the grid row. -->
+<div class="absolute top-[48%] left-1/2 -translate-x-1/2 w-full max-w-sm pointer-events-auto">
+<div class="flex flex-col items-center">
+<!-- Orb -->
+<div class="orb-float mb-4 w-12 h-12 bg-primary-container rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+<span class="material-symbols-outlined text-white text-3xl">lightbulb</span>
+</div>
+<!-- Speech Bubble -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-xl border border-outline-variant/30 text-center relative mb-8">
+<!-- Tail -->
+<div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-surface-container-lowest rotate-45 border-l border-t border-outline-variant/30"></div>
+<p class="font-body-lg text-body-lg text-on-surface mb-6">Physical Gold options are located within the Investment section. Select to view available inventory.</p>
+<!-- Progress Dots -->
+<div class="flex justify-center gap-1.5 mb-6">
+<div class="w-6 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-surface-container-highest"></div>
+<div class="w-2 h-2 rounded-full bg-surface-container-highest"></div>
+<div class="w-2 h-2 rounded-full bg-surface-container-highest"></div>
+</div>
+<!-- Buttons -->
+<div class="flex gap-3">
+<button class="flex-1 h-10 rounded-full border border-outline-variant text-on-surface font-label-sm text-label-sm active:scale-95 transition-transform">
+                                Skip tutorial
+                            </button>
+<button class="flex-1 h-10 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold shadow-md active:scale-95 transition-transform">
+                                Next
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+        // Simple interaction for demo
+        document.querySelector('.scrim').addEventListener('click', (e) => {
+            // Dismissal logic could go here
+        });
+
+        // Add slight tilt effect to the bubble based on device orientation if needed, 
+        // but for now, simple floating is more "tactile" and modern.
+    </script>
+
+
+</body></html>

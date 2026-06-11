@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Rafiq Smart Insight</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&amp;family=IBM+Plex+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#ffb955",
+                    "on-surface-variant": "#e1bfb6",
+                    "secondary": "#ffb5a0",
+                    "inverse-surface": "#e5e2e1",
+                    "tertiary-fixed-dim": "#ffb955",
+                    "on-tertiary-container": "#3c2500",
+                    "surface-container": "#20201f",
+                    "background": "#131313",
+                    "primary-fixed": "#ffdbd1",
+                    "primary-container": "#f1643b",
+                    "on-surface": "#e5e2e1",
+                    "on-tertiary-fixed-variant": "#633f00",
+                    "inverse-primary": "#ad330d",
+                    "secondary-fixed-dim": "#ffb5a0",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed": "#3b0a00",
+                    "on-primary-fixed-variant": "#872100",
+                    "primary": "#ffb5a0",
+                    "on-background": "#e5e2e1",
+                    "on-secondary-container": "#ffaa92",
+                    "on-secondary": "#5f1500",
+                    "on-primary-fixed": "#3b0900",
+                    "surface-dim": "#131313",
+                    "outline-variant": "#59413b",
+                    "surface-variant": "#353535",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-tint": "#ffb5a0",
+                    "surface": "#131313",
+                    "on-secondary-fixed-variant": "#862200",
+                    "surface-bright": "#393939",
+                    "on-tertiary": "#452b00",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-container": "#c68200",
+                    "outline": "#a88a82",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#541100",
+                    "inverse-on-surface": "#313030",
+                    "tertiary-fixed": "#ffddb4",
+                    "primary-fixed-dim": "#ffb5a0",
+                    "secondary-fixed": "#ffdbd1",
+                    "secondary-container": "#922601",
+                    "on-primary": "#601400",
+                    "on-error": "#690005",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-tertiary-fixed": "#291800",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#353535"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "stack-gap": "12px",
+                    "xs": "8px",
+                    "md": "16px",
+                    "container-padding": "20px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "headline-md": ["IBM Plex Serif"],
+                    "label-sm": ["IBM Plex Sans"],
+                    "display-lg-mobile": ["IBM Plex Serif"],
+                    "display-lg": ["IBM Plex Serif"],
+                    "body-md": ["IBM Plex Sans"],
+                    "body-lg": ["IBM Plex Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+        }
+        .kinetic-glow {
+            filter: blur(120px);
+            opacity: 0.15;
+            background: #DA532C;
+            border-radius: 100%;
+            position: absolute;
+        }
+        .glass-card {
+            background: rgba(42, 42, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .orange-overlay {
+            background: linear-gradient(180deg, rgba(218, 83, 44, 0.2) 0%, rgba(19, 19, 19, 1) 100%);
+        }
+        .chart-bar-glow {
+            box-shadow: 0 0 15px rgba(241, 100, 59, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+<!-- Mobile Container (iPhone 13-ish) -->
+<main class="relative w-[390px] h-[844px] overflow-hidden bg-background shadow-2xl flex flex-col">
+<!-- Animated Background Foundation -->
+
+<!-- Full Screen Orange Gradient Overlay -->
+<div class="absolute inset-0 orange-overlay pointer-events-none"></div>
+<!-- Kinetic Glow Orbs -->
+<div class="kinetic-glow w-64 h-64 -top-10 -right-10"></div>
+<div class="kinetic-glow w-48 h-48 bottom-40 left-10"></div>
+<!-- Top AppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding py-md bg-background/0 backdrop-blur-sm">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20">
+<img alt="Rafiq AI" class="w-full h-full object-cover" data-alt="A highly detailed close-up of a sophisticated AI avatar designed for a luxury banking app. The avatar is a sleek, minimalist metallic sphere with glowing orange pulse lines circulating its surface. It is set against a dark, prestigious background with subtle glassmorphic reflections. The lighting is dramatic, highlighting the smooth texture and the high-tech, authoritative aesthetic of the Rafiq brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnCpLR8p9a33_hrrnTsWvSg5moJpB-SvFVUDhmdBYRaUuC6ZrjbWexB3T2gVnV0L2XqQ2_IdO3fvSJ1ZWfgIXolBqtzcSm6a5KPkXJi5OgJWFtSC7qIpCubgGMOMj6rEHvOYhhO4s6DjFeu4_p--xgU2FGzTzCVPDMzfGIEJ5qASZE9N7NcI4GAL_Z42EHAVN61igN0twB2jBX58phjpWx9IVnzHsd9HaVtwDKzonMAtI7CVwT6mkM4KwhTkj8dOdPvquCWW-PtfI"/>
+</div>
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary-container uppercase tracking-tighter">RAFIQ</span>
+</div>
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity" data-icon="notifications">notifications</button>
+</header>
+<!-- Main Content Area -->
+<div class="relative z-10 flex-1 px-container-padding pt-32 flex flex-col justify-between pb-12">
+<!-- Insight Text Block -->
+<section class="space-y-md">
+<div class="inline-flex items-center gap-xs px-sm py-1 rounded-full bg-primary-container/20 border border-primary/20">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span class="font-label-sm text-label-sm text-primary uppercase">Savings Alert</span>
+</div>
+<h1 class="font-headline-md text-headline-md-mobile leading-tight text-on-surface">
+                    You saved <span class="text-tertiary">JOD 120</span> more this month on <span class="italic">Utilities</span> than last month.
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px]">
+                    Your energy efficiency plan is paying off. Rafiq has identified potential for another 5% reduction.
+                </p>
+</section>
+<!-- Visual Chart Comparison -->
+<section class="glass-card rounded-xl p-lg space-y-lg relative overflow-hidden">
+<div class="flex justify-between items-end h-40 gap-lg px-md relative z-10">
+<!-- Last Month -->
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full bg-surface-container-highest rounded-t-lg h-32 transition-all duration-700 ease-out" id="last-month-bar"></div>
+<span class="font-label-sm text-label-sm text-outline">LAST MO.</span>
+</div>
+<!-- This Month -->
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-container rounded-t-lg h-24 relative chart-bar-glow transition-all duration-700 ease-out" id="this-month-bar">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-white text-on-primary-container font-label-sm text-[11px] px-2 py-1 rounded-md shadow-lg whitespace-nowrap">
+                                - JOD 120
+                            </div>
+</div>
+<span class="font-label-sm text-label-sm text-primary">THIS MO.</span>
+</div>
+</div>
+<!-- Background Sparkline Decor -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg class="w-full h-full" viewbox="0 0 400 150">
+<path d="M0,150 L50,130 L100,140 L150,110 L200,120 L250,90 L300,100 L350,70 L400,80 L400,150 L0,150 Z" fill="url(#grad1)"></path>
+<defs>
+<lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#f1643b;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#f1643b;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+</section>
+<!-- Action Buttons -->
+<footer class="space-y-sm">
+<button class="w-full py-md bg-[#DA532C] text-white rounded-xl font-label-sm text-body-md hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-sm">
+                    Take Action
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full py-md bg-transparent text-on-surface-variant rounded-xl font-label-sm text-body-md hover:bg-white/5 transition-all">
+                    Dismiss
+                </button>
+</footer>
+</div>
+<!-- Bottom NavBar (Suppressed for focused task, but kept structure for context) -->
+<!-- Based on JSON: Insights is active -->
+<nav class="fixed bottom-0 w-full z-50 h-20 px-xl flex justify-around items-center bg-surface-container/80 backdrop-blur-2xl border-t border-white/5 pb-safe">
+<div class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">chat_bubble</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full p-3 scale-110 active:scale-95 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+</div>
+</nav>
+<!-- Rafiq Interactive Bar (Suppressed on this specific Insight Detail Screen to focus content) -->
+</main>
+<script>
+        // Micro-interactions for chart bars
+        window.addEventListener('DOMContentLoaded', () => {
+            const lastMonth = document.getElementById('last-month-bar');
+            const thisMonth = document.getElementById('this-month-bar');
+            
+            // Initial state
+            lastMonth.style.height = '0px';
+            thisMonth.style.height = '0px';
+            
+            // Animate in
+            setTimeout(() => {
+                lastMonth.style.height = '80%';
+                thisMonth.style.height = '50%';
+            }, 300);
+        });
+
+        // Haptic feedback simulation
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(10);
+                }
+            });
+        });
+    </script>
+</body></html>

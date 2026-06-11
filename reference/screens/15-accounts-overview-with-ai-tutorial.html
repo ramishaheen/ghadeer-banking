@@ -1,0 +1,288 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f3f3f3",
+                        "primary-fixed": "#ffdbcc",
+                        "on-background": "#1a1c1c",
+                        "on-primary-fixed": "#351000",
+                        "on-surface-variant": "#5a4136",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#a04100",
+                        "tertiary-container": "#7b9ad0",
+                        "on-secondary-fixed-variant": "#504535",
+                        "on-primary-container": "#572000",
+                        "on-tertiary-container": "#093161",
+                        "on-secondary-fixed": "#231a0d",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "secondary": "#695c4c",
+                        "outline": "#8e7164",
+                        "inverse-primary": "#ffb693",
+                        "background": "#f9f9f9",
+                        "tertiary-fixed": "#d6e3ff",
+                        "inverse-on-surface": "#f1f1f1",
+                        "secondary-fixed-dim": "#d5c4b0",
+                        "tertiary": "#405f91",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#efddc8",
+                        "error": "#ba1a1a",
+                        "primary-container": "#ff6b00",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-container": "#6d6150",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "surface-bright": "#f9f9f9",
+                        "secondary-fixed": "#f2e0cb",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#eeeeee",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-fixed-variant": "#264778",
+                        "tertiary-fixed-dim": "#a9c7ff",
+                        "surface-dim": "#dadada",
+                        "primary-fixed-dim": "#ffb693",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#001b3d",
+                        "surface-tint": "#a04100",
+                        "outline-variant": "#e2bfb0",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "1rem",
+                        "card-gap": "0.75rem",
+                        "element-padding": "1.25rem",
+                        "grid-gutter": "1rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .balance-gradient {
+            background: linear-gradient(135deg, #ff6b00 0%, #a04100 100%);
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim flex justify-between items-center px-container-margin py-3 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden active:scale-95 transition-transform duration-150">
+<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_migiatmVC9tBCETfebz8keRCQj4zH5GW8B05oVcxwN5rdplhsNctICXimMeyAhSFxSw0zr4oB-zYJspY3cjLnCaBqi3FjR2OmB4Y9BWPtIQpBl9WQ0S40IKGRaLCqxWylLiWcHP_gXTf9BJdlqrEtCpZYRciBSZHK1LU8ek_iZ1neXy89O3dI1l8vmMBGFl61HM_naCC6zyOXVWR9p3P7kaeOOMWvuxS3HTzjdVh-jSyypl11EAcInOAAAw_CnmAwR07eY8KgXw">
+</div>
+<div class="flex flex-col">
+<span class="bg-surface-container-high px-2 py-0.5 rounded-full font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                    Standard
+                </span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary" data-icon="search">search</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150 relative">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="mt-16 px-container-margin space-y-6">
+<!-- Total Balance Card -->
+<section class="mt-4">
+<div class="balance-gradient rounded-xl p-element-padding shadow-sm text-on-primary relative overflow-hidden active:scale-[0.98] transition-all duration-200">
+<!-- Abstract Texture Overlay -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg height="100%" preserveAspectRatio="none" viewBox="0 0 100 100" width="100%">
+<circle cx="90" cy="10" fill="white" r="40"></circle>
+<circle cx="10" cy="90" fill="white" r="30"></circle>
+</svg>
+</div>
+<div class="relative z-10">
+<p class="font-label-sm text-label-sm opacity-90 mb-1">Total balance</p>
+<div class="flex items-baseline gap-2 mb-4">
+<h1 class="font-display-lg text-display-lg tracking-tight">JOD ••••</h1>
+<button class="p-1 rounded-full hover:bg-white/10" onclick="toggleBalance(this)">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility_off">visibility_off</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-6 pt-4 border-t border-white/20">
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 opacity-80">
+<span class="material-symbols-outlined text-[14px]" data-icon="south_west">south_west</span>
+<span class="font-label-sm text-label-sm">Money in</span>
+</div>
+<p class="font-headline-md text-headline-md-mobile">JOD 0.000</p>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 opacity-80">
+<span class="material-symbols-outlined text-[14px]" data-icon="north_east">north_east</span>
+<span class="font-label-sm text-label-sm">Money out</span>
+</div>
+<p class="font-headline-md text-headline-md-mobile">JOD 0.000</p>
+</div>
+</div>
+<button class="mt-6 w-full py-3 bg-white text-primary font-bold rounded-full text-body-lg flex items-center justify-center gap-2 active:scale-95 transition-transform">
+                        Show balance
+                    </button>
+</div>
+</div>
+</section>
+<!-- Cashback Section -->
+<section class="bg-surface-container-lowest rounded-xl p-element-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.04)] border border-surface-container flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary font-bold" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div>
+<h3 class="font-headline-md text-[16px] text-on-surface">Cashback in vault</h3>
+<p class="text-on-surface-variant font-label-sm text-label-sm">JOD 0.000 available</p>
+</div>
+</div>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface font-bold rounded-full text-label-sm hover:bg-surface-container-highest transition-colors active:scale-95">
+                Withdraw
+            </button>
+</section>
+<!-- Accounts List Section -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md-mobile text-on-surface">Accounts</h2>
+<button class="text-primary font-bold text-label-sm">See all</button>
+</div>
+<!-- Regular Demand Account Card -->
+<div class="bg-surface-container-lowest rounded-xl p-element-padding shadow-[0_4px_6px_-1px_rgba(0,0,0,0.04)] border border-surface-container space-y-5">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="payments">payments</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg text-on-surface">Regular Demand</h4>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Main Account • 4421</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-headline-md-mobile text-on-surface">JOD 0.000</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2.5 bg-primary text-on-primary font-bold rounded-lg text-label-sm flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="swap_horiz">swap_horiz</span>
+                        Transfer
+                    </button>
+<button class="flex-1 py-2.5 bg-surface-container-high text-on-surface font-bold rounded-lg text-label-sm flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
+                        Show
+                    </button>
+<button class="flex-1 py-2.5 bg-surface-container-high text-on-surface font-bold rounded-lg text-label-sm flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="info">info</span>
+                        IBAN
+                    </button>
+</div>
+</div>
+</section>
+<!-- Promo Banner -->
+<section class="relative h-40 rounded-xl overflow-hidden shadow-sm group">
+<img alt="Promotional banner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A premium close-up of a sleek metallic credit card resting on a reflective dark surface with soft orange accent lighting. The background features blurred financial data visualizations in a clean, modern aesthetic. The mood is sophisticated and evokes high-end fintech reliability, matching a primary orange and charcoal gray color palette. Professional high-key photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBMIsApiXmolELsQzIKalsJ2CxfCE_Flaz5CHBJSaWyNw7CzRzXcTxkIEGw2x7gEynbOEB2TnRWpNL698flrhYdHsJGAmKdsjW71UvAOHUoF1K-SqT8UhVUWNdVCXqd_Ox6-Tu-QprPPqH1MKsKgIX8Eo_vO5hcxyGjGtXoYeJGJhqNFQ3gtoCxZzEgnKKiDn1iZiHHH0ODH7xQE4TTBAIEmhbKtLeF3jJkc7vKKDYEuI-RXoKMIFC-aMSEYrpKZtJWXm_wmMxVhI">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-element-padding text-white">
+<span class="bg-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase w-fit mb-2">New Offering</span>
+<h3 class="font-headline-md text-headline-md-mobile leading-tight">Secure your future with Kinetic Vaults</h3>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.04)] bg-surface-container-lowest dark:bg-inverse-surface flex justify-around items-center h-16 px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+<span class="font-label-sm text-label-sm">Payment</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold hover:bg-surface-container transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="flower" style="font-variation-settings: 'FILL' 1;">local_florist</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-sm text-label-sm">Hub</span>
+</a>
+</nav>
+<script>
+        function toggleBalance(btn) {
+            const icon = btn.querySelector('.material-symbols-outlined');
+            const h1 = btn.previousElementSibling;
+            if (icon.innerText === 'visibility_off') {
+                icon.innerText = 'visibility';
+                h1.innerText = 'JOD 1,240.500';
+            } else {
+                icon.innerText = 'visibility_off';
+                h1.innerText = 'JOD ••••';
+            }
+        }
+
+        // Handle active navigation state visual cue (not needed here as Home is hardcoded active)
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                document.querySelectorAll('nav a').forEach(l => {
+                    l.classList.remove('text-primary', 'dark:text-primary-fixed-dim', 'font-bold');
+                    l.classList.add('text-on-surface-variant', 'dark:text-outline-variant');
+                    l.querySelector('span').style.fontVariationSettings = "'FILL' 0";
+                });
+                link.classList.add('text-primary', 'dark:text-primary-fixed-dim', 'font-bold');
+                link.classList.remove('text-on-surface-variant', 'dark:text-outline-variant');
+                link.querySelector('span').style.fontVariationSettings = "'FILL' 1";
+            });
+        });
+    </script>
+<div class="fixed inset-0 z-[60] bg-black/30 backdrop-blur-sm transition-opacity duration-300" id="ai-overlay"></div><div class="fixed bottom-24 right-4 z-[70] flex flex-col items-end gap-3 max-w-[280px]" id="ai-assistant-container"><div class="bg-surface-container-lowest rounded-2xl p-4 shadow-xl border border-surface-container-high animate-in fade-in slide-in-from-bottom-4 duration-500"><p class="text-on-surface font-body-md mb-4">I am Rafeeq, your Kinetic AI assistant. Would you like a guided overview of our investment products?</p><div class="flex flex-col gap-2"><button class="w-full py-2 bg-primary text-on-primary rounded-full font-bold text-label-sm active:scale-95 transition-transform">Tell me more</button><button class="w-full py-2 bg-surface-container-high text-on-surface rounded-full font-bold text-label-sm active:scale-95 transition-transform" onclick="document.getElementById('ai-overlay').remove(); document.getElementById('ai-assistant-container').remove();">Maybe later</button></div><div class="absolute -bottom-2 right-6 w-4 h-4 bg-surface-container-lowest rotate-45 border-r border-b border-surface-container-high"></div></div><div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-primary to-primary-container shadow-lg active:scale-90 transition-transform cursor-pointer"><div class="w-full h-full rounded-full border-2 border-white overflow-hidden bg-surface"><img alt="Kinetic AI Assistant" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoX3tPhfdTiRGW-9U2U79xXwn4TDjmZuosHvUKtdkCwtC7TZKiHnGAfbRe4DM5Ge0yX-IUuoGsZ68-X6fu_zoF4SyrEgLzUtXaKlVExIFmp-Hbo9xP7MzTgyY2-lLNEv2JdIlwEEKqTHQ_XdHh6CcJ_wpxCYrXDiU3IOhcyvgOUyDN1jwrdZcnXnn5f5hPhj8plAhQETgej5o85AY3NUq7ek_A6mq4GO0WjdOFPRx7YQVKpXFjKRAUWU17CSdcVMEtJ25QNjnuiII"></div></div></div>
+
+
+
+</body></html>

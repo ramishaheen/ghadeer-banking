@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="ltr" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&amp;family=IBM+Plex+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#ffb955",
+                        "on-surface-variant": "#e1bfb6",
+                        "secondary": "#ffb5a0",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-fixed-dim": "#ffb955",
+                        "on-tertiary-container": "#3c2500",
+                        "surface-container": "#20201f",
+                        "background": "#131313",
+                        "primary-fixed": "#ffdbd1",
+                        "primary-container": "#f1643b",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "inverse-primary": "#ad330d",
+                        "secondary-fixed-dim": "#ffb5a0",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#3b0a00",
+                        "on-primary-fixed-variant": "#872100",
+                        "primary": "#ffb5a0",
+                        "on-background": "#e5e2e1",
+                        "on-secondary-container": "#ffaa92",
+                        "on-secondary": "#5f1500",
+                        "on-primary-fixed": "#3b0900",
+                        "surface-dim": "#131313",
+                        "outline-variant": "#59413b",
+                        "surface-variant": "#353535",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-tint": "#ffb5a0",
+                        "surface": "#131313",
+                        "on-secondary-fixed-variant": "#862200",
+                        "surface-bright": "#393939",
+                        "on-tertiary": "#452b00",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary-container": "#c68200",
+                        "outline": "#a88a82",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-container": "#541100",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed": "#ffddb4",
+                        "primary-fixed-dim": "#ffb5a0",
+                        "secondary-fixed": "#ffdbd1",
+                        "secondary-container": "#922601",
+                        "on-primary": "#601400",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed": "#291800",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#353535"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "stack-gap": "12px",
+                        "xs": "8px",
+                        "md": "16px",
+                        "container-padding": "20px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["IBM Plex Serif"],
+                        "label-sm": ["IBM Plex Sans"],
+                        "display-lg-mobile": ["IBM Plex Serif"],
+                        "display-lg": ["IBM Plex Serif"],
+                        "body-md": ["IBM Plex Sans"],
+                        "body-lg": ["IBM Plex Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .kinetic-glow {
+            filter: blur(80px);
+            background: radial-gradient(circle, rgba(241, 100, 59, 0.15) 0%, rgba(241, 100, 59, 0) 70%);
+        }
+        .glass-card {
+            background: rgba(42, 42, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'IBM Plex Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .bilingual-swap[dir="rtl"] {
+            font-family: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex items-center justify-center min-h-screen">
+<!-- Mobile Wrapper (iOS 390x844 Layout) -->
+<main class="relative w-[390px] h-[844px] bg-background overflow-hidden shadow-2xl border border-white/5 rounded-[48px]">
+<!-- Animated Background Glow -->
+<div class="absolute -top-20 -right-20 w-80 h-80 kinetic-glow pointer-events-none"></div>
+<div class="absolute top-1/2 -left-20 w-64 h-64 kinetic-glow pointer-events-none opacity-50"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-[390px] z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-container-padding py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-primary-container flex items-center justify-center">
+<img alt="Rafiq AI Logo" class="w-6 h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3OwH88nk1gEOcBeBv0lwjtwWPzTJyZg5UjowPyY-YUCOO6sPuMh4RdEYvNpt7_6R9LLdB46Qqodp15lqmQQIvVAa_baC7UTbsM4F1bc3Vrn4-0WRGWFcHKuFU_h3meFBSZMTh_qSvjBWqdiPl17beqCcsNpLXZqr8rxyAraxTvggBFbx-dVtpujZeawrp4oKU_8hSXaq1vFkCAaYug4xNt5FwYp4D_hWPR2XoRmDkUjTs3IcLGNIWHT7dj3h2VK5LVtOhmCaJ-us"/>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary-container uppercase tracking-tighter">RAFIQ</h1>
+</div>
+<button class="text-primary hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Scrollable Content Area -->
+<div class="h-full pt-24 pb-32 overflow-y-auto no-scrollbar px-container-padding">
+<!-- Greeting & AI Message -->
+<section class="mb-lg">
+<div class="flex justify-between items-end mb-sm">
+<div>
+<p class="font-body-md text-on-surface-variant mb-1">Good morning, Ahmed</p>
+<h2 class="font-headline-md text-headline-md-mobile text-on-surface">صباح الخير أحمد</h2>
+</div>
+</div>
+<div class="glass-card p-md rounded-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-20">
+<span class="material-symbols-outlined text-4xl">auto_awesome</span>
+</div>
+<p class="font-body-md text-on-surface leading-relaxed">
+                        Your portfolio is up <span class="text-tertiary">2.4%</span> this week. You have <span class="text-primary">3</span> bills due soon. Would you like me to process them?
+                    </p>
+</div>
+</section>
+<!-- Main Financial Bento Card -->
+<section class="mb-lg">
+<div class="glass-card rounded-xl p-lg relative overflow-hidden group">
+<!-- Sparkline Background -->
+<div class="absolute bottom-0 left-0 w-full h-24 opacity-30 pointer-events-none">
+<svg class="w-full h-full" viewbox="0 0 400 100">
+<path d="M0,80 Q50,70 100,85 T200,60 T300,75 T400,40" fill="none" stroke="#DA532C" stroke-width="3"></path>
+<lineargradient id="grad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#DA532C;stop-opacity:0.2"></stop>
+<stop offset="100%" style="stop-color:#DA532C;stop-opacity:0"></stop>
+</lineargradient>
+<path d="M0,80 Q50,70 100,85 T200,60 T300,75 T400,40 V100 H0 Z" fill="url(#grad)"></path>
+</svg>
+</div>
+<div class="relative z-10">
+<p class="font-label-sm text-on-surface-variant mb-base uppercase">Total Balance / الرصيد الإجمالي</p>
+<h3 class="font-headline-md text-3xl text-on-surface mb-md">
+<span class="font-headline-md">JOD</span> 42,850.24
+                        </h3>
+<div class="grid grid-cols-2 gap-md pt-md border-t border-white/10">
+<div>
+<p class="font-label-sm text-on-surface-variant">Checking</p>
+<p class="font-body-lg text-on-surface">JOD 12,400</p>
+</div>
+<div>
+<p class="font-label-sm text-on-surface-variant">Savings</p>
+<p class="font-body-lg text-on-surface">JOD 30,450</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Proactive Chips -->
+<section class="mb-lg">
+<p class="font-label-sm text-on-surface-variant mb-sm uppercase px-1">Quick Actions</p>
+<div class="flex gap-sm overflow-x-auto no-scrollbar pb-2">
+<button class="flex items-center gap-xs bg-surface-container-high hover:bg-surface-variant px-md py-sm rounded-full border border-white/5 whitespace-nowrap transition-all active:scale-95">
+<span class="material-symbols-outlined text-tertiary">monetization_on</span>
+<span class="font-label-sm text-on-surface">Buy Gold</span>
+</button>
+<button class="flex items-center gap-xs bg-surface-container-high hover:bg-surface-variant px-md py-sm rounded-full border border-white/5 whitespace-nowrap transition-all active:scale-95">
+<span class="material-symbols-outlined text-primary">send</span>
+<span class="font-label-sm text-on-surface">Transfer</span>
+</button>
+<button class="flex items-center gap-xs bg-surface-container-high hover:bg-surface-variant px-md py-sm rounded-full border border-white/5 whitespace-nowrap transition-all active:scale-95">
+<span class="material-symbols-outlined text-secondary">receipt_long</span>
+<span class="font-label-sm text-on-surface">Pay Bills</span>
+</button>
+</div>
+</section>
+<!-- Featured Insights Image -->
+<section class="mb-lg">
+<div class="rounded-xl overflow-hidden relative h-40 group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A premium high-contrast digital photograph of a gold bar and glowing digital currency symbols on a dark charcoal surface. The lighting is dramatic and moody, using the brand's primary orange as a soft kinetic glow that reflects off the metallic surfaces. The aesthetic is clean, corporate, and extremely modern, conveying a sense of high-net-worth security and advanced AI-driven financial growth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1G9EFfWMp8O7sLWvBssOyfb2oVCf9xA3ZryCKJ_--Yg_5vIVCVWPJ8T9BvEmnWuTV1AM1Ng56e120uiLn89QWs8K5wwTXev-xq2BEvvF0WNOU85MwleBKS-WZFblWM1iW9MKkcZuadKL9ySGxjzGgUm1fJcBd6LO1ZAsz6f6ZvbzwC8i4SqMclf9jxWQy38s3KMDQzi66B5M1XpdhT3-PjVkXkiaqXYV-vxuCfurR0XOhicCzrYLel_PR82z0Lge48KZ_O4C-fvM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<span class="bg-primary/20 text-primary px-sm py-1 rounded-full text-[10px] font-bold uppercase mb-2 inline-block backdrop-blur-md">Market Update</span>
+<h4 class="font-headline-md text-headline-md-mobile text-white">Gold is trending up.</h4>
+</div>
+</div>
+</section>
+</div>
+<!-- Floating Rafiq AI Button -->
+<button class="fixed bottom-24 right-container-padding w-16 h-16 rounded-full bg-primary-container shadow-[0_0_30px_rgba(241,100,59,0.4)] flex items-center justify-center z-50 group hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-on-primary-container text-3xl group-hover:rotate-12 transition-transform">neurology</span>
+<!-- Pulsing Kinetic Glow -->
+<div class="absolute inset-0 rounded-full animate-ping bg-primary-container/30 opacity-50"></div>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-[390px] z-50 pb-safe bg-surface-container/80 backdrop-blur-2xl border-t border-white/5 shadow-xl flex justify-around items-center h-20 px-xl">
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full p-3 scale-110 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">insights</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</nav>
+<!-- iOS Home Indicator -->
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/20 rounded-full z-[60]"></div>
+</main>
+<script>
+        // Micro-interaction for the Rafiq glow effect
+        const rafiqBtn = document.querySelector('button .animate-ping');
+        setInterval(() => {
+            rafiqBtn.classList.toggle('opacity-50');
+            rafiqBtn.classList.toggle('opacity-20');
+        }, 2000);
+
+        // Language toggle mock (conceptual)
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('.rounded-full.p-3')) {
+                // Potential feedback for nav click
+            }
+        });
+    </script>
+</body></html>

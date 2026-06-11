@@ -1,0 +1,151 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Order Success - Kinetic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .orb-glow {
+            box-shadow: 0 0 40px rgba(160, 65, 0, 0.3);
+            animation: breathe 4s ease-in-out infinite;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        .success-check-anim {
+            animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim flex justify-between items-center px-container-margin py-3 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional close-up studio portrait of a young entrepreneur with a friendly expression. The lighting is soft and high-key, matching a bright light-mode UI aesthetic. The background is a clean, minimalist off-white, maintaining a corporate yet modern feel with subtle orange warm tones reflecting the brand's primary color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGztcaEmG_J-Ylbym0EERUKhHPl21C8xGc_4iTwYiGRzcgKAc6j2bezFqkuZ6Gz6TGIdT5c0MBuVkAJnFttYzrORQvjubllFyzk7QVo66BVdyQE9lgEr1zeTFXi6h1BG6vf4yspmO5d1Ep5q6feTazB2Nb7hdlMea_ROlrXO8qHYXnjCK6FQV5WAIMDqRDxBn9_6MfTkPKeKAl1nQ3Siwe43qMZO1jRCMcNCRdtMDrTMTfyKFAudwq5AH85b5uQblUk4V7Ne3Va0o">
+</div>
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-inverse-primary">Kinetic</span>
+</div>
+<button class="material-symbols-outlined text-primary dark:text-inverse-primary hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors p-2 rounded-full active:scale-95">
+            notifications
+        </button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-20 pb-24 px-container-margin flex flex-col items-center">
+<!-- Progress Dots (4 of 4) -->
+<div class="flex gap-2 mb-8">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
+</div>
+<!-- Success Message Center -->
+<div class="w-full max-w-md flex flex-col items-center text-center space-y-6">
+<div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center success-check-anim">
+<span class="material-symbols-outlined text-primary !text-6xl" style="font-variation-settings: 'wght' 700;">
+                    check_circle
+                </span>
+</div>
+<div class="space-y-2">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-surface">Order placed</h1>
+<p class="text-on-surface-variant font-body-lg">Order ID #99281</p>
+</div>
+<!-- Transaction Detail Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-element-padding shadow-sm border border-outline-variant/30">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<div class="text-left">
+<p class="font-headline-md text-headline-md-mobile text-on-surface">Gold Bullion</p>
+<p class="text-label-sm text-on-surface-variant">0.5oz Investment Grade</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-headline-md-mobile text-primary">$1,042.50</p>
+<p class="text-label-sm text-on-surface-variant">Completed</p>
+</div>
+</div>
+<button class="w-full py-3 rounded-full border border-outline text-on-surface font-body-lg hover:bg-surface-container transition-colors active:scale-98">
+                    Track in My Orders
+                </button>
+</div>
+</div>
+<!-- AI Assistant Area (Orb + Speech Bubble) -->
+<div class="fixed bottom-24 right-container-margin left-container-margin flex flex-col items-end gap-4 max-w-md mx-auto pointer-events-none">
+<!-- Speech Bubble -->
+<div class="bg-inverse-surface text-inverse-on-surface p-4 rounded-2xl rounded-br-none shadow-lg max-w-[85%] pointer-events-auto">
+<p class="font-body-md">Your transaction has been processed successfully. I have scheduled a recurring weekly review for gold performance. Would you like to configure price alerts?</p>
+</div>
+<!-- Quick Reply Chips -->
+<div class="flex flex-wrap justify-end gap-2 pointer-events-auto">
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-full text-label-sm font-semibold border border-outline-variant hover:bg-secondary-container transition-all active:scale-95">Configure alerts</button>
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-full text-label-sm font-semibold border border-outline-variant hover:bg-secondary-container transition-all active:scale-95">Decline</button>
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-full text-label-sm font-semibold border border-outline-variant hover:bg-secondary-container transition-all active:scale-95">Market overview</button>
+</div>
+<!-- The Orb (Idle State) -->
+<div class="w-14 h-14 bg-gradient-to-br from-primary to-primary-container rounded-full orb-glow flex items-center justify-center pointer-events-auto cursor-pointer">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">
+                    blur_on
+                </span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.04)] bg-surface-container-lowest dark:bg-inverse-surface flex justify-around items-center w-full h-16 px-4 pb-safe">
+<!-- Payment -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-all cursor-pointer active:scale-98">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-label-sm text-label-sm">Payment</span>
+</div>
+<!-- Home -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-all cursor-pointer active:scale-98">
+<span class="material-symbols-outlined">local_florist</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<!-- Hub (Active State determined by 'Investment' context) -->
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold hover:bg-surface-container dark:hover:bg-surface-variant transition-all cursor-pointer active:scale-98">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-label-sm text-label-sm">Hub</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for the Orb
+        const orb = document.querySelector('.orb-glow');
+        orb.addEventListener('click', () => {
+            orb.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                orb.style.transform = 'scale(1)';
+            }, 150);
+        });
+
+        // Quick reply click interaction
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if(this.innerText.includes('set alert')) {
+                    console.log('Setting alert...');
+                }
+            });
+        });
+    </script>
+
+
+
+
+</body></html>

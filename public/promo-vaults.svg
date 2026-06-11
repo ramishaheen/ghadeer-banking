@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1a1a"/>
+      <stop offset="0.6" stop-color="#2c2118"/>
+      <stop offset="1" stop-color="#3a2410"/>
+    </linearGradient>
+    <linearGradient id="cardm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4b4b50"/>
+      <stop offset="0.5" stop-color="#26262b"/>
+      <stop offset="1" stop-color="#101013"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff6b00" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ff6b00" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ff6b00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <ellipse cx="620" cy="330" rx="280" ry="120" fill="#ff6b00" opacity="0.12"/>
+  <g transform="rotate(-12 430 210)">
+    <rect x="250" y="120" width="360" height="220" rx="22" fill="url(#cardm)" stroke="#5a5a60" stroke-width="1.5"/>
+    <rect x="282" y="172" width="52" height="40" rx="7" fill="#d99a1b" opacity="0.92"/>
+    <rect x="282" y="172" width="52" height="40" rx="7" fill="none" stroke="#8a5d06" stroke-width="1.2"/>
+    <text x="282" y="296" font-family="Arial" font-size="20" fill="#cfcfd4" letter-spacing="3">5106  ••••  ••••  4421</text>
+    <text x="282" y="324" font-family="Arial" font-size="13" fill="#8a8a8a">AHMED — KINETIC VAULT</text>
+    <circle cx="556" cy="160" r="17" fill="#ff6b00" opacity="0.9"/>
+    <circle cx="532" cy="160" r="17" fill="#f5a623" opacity="0.75"/>
+  </g>
+  <rect x="0" y="392" width="800" height="8" fill="url(#glow)"/>
+</svg>

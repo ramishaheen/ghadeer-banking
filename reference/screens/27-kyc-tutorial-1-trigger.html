@@ -1,0 +1,300 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>Kinetic | Secure KYC Update</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        .kinetic-orb-container {
+            position: relative;
+        }
+        .kinetic-orb-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(255,107,0,0.2) 0%, rgba(255,107,0,0) 70%);
+            z-index: -1;
+            animation: pulse-soft 3s ease-in-out infinite;
+        }
+        /* Spotlight Effect Overlay */
+        .spotlight-overlay {
+            background: radial-gradient(circle 120px at calc(100% - 60px) calc(100% - 100px), transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#a9c7ff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-fixed": "#231a0d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-container": "#572000",
+                        "surface-container-low": "#f3f3f3",
+                        "secondary-container": "#efddc8",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "tertiary-fixed": "#d6e3ff",
+                        "background": "#f9f9f9",
+                        "surface-tint": "#a04100",
+                        "secondary-fixed": "#f2e0cb",
+                        "on-tertiary-fixed-variant": "#264778",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-variant": "#e2e2e2",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-surface": "#2f3131",
+                        "surface": "#f9f9f9",
+                        "primary": "#a04100",
+                        "on-secondary": "#ffffff",
+                        "outline": "#8e7164",
+                        "on-primary-fixed": "#351000",
+                        "on-secondary-container": "#6d6150",
+                        "inverse-primary": "#ffb693",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary": "#695c4c",
+                        "on-surface": "#1a1c1c",
+                        "error": "#ba1a1a",
+                        "tertiary": "#405f91",
+                        "on-tertiary-fixed": "#001b3d",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-container": "#093161",
+                        "primary-fixed": "#ffdbcc",
+                        "primary-container": "#ff6b00",
+                        "outline-variant": "#e2bfb0",
+                        "secondary-fixed-dim": "#d5c4b0",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#7b9ad0",
+                        "on-secondary-fixed-variant": "#504535",
+                        "on-surface-variant": "#5a4136"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "0.75rem",
+                        "grid-gutter": "1rem",
+                        "container-margin": "1rem",
+                        "element-padding": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface flex justify-between items-center px-container-margin py-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsdgI0isIFFf3yKs0Z8deXkshsd2C7p1Gf8HFbl_HxQXmrMQo1q0OOW-iglotywZr_uBAb-2ZJbe9unH69PSPEay3ewQj3bhrnmod_X2sEC-clfgFF5T04qCFv7BS3msWxWZBVcxp1vQYBRtXNCB46uSh3tZ20AMc2SRnrxpzApCId5Ep0bM2DO0YJA3NdipiczV6XPwyeP9VlGdGIGxbFazgdNMY10RLFrSEM7xUc4R5HwOuF7meNrHQYBR6W5QrUIJxxmA6_Olk">
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary">Kinetic</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-16 px-container-margin pb-32">
+<!-- Balance Card -->
+<section class="mt-6 mb-8">
+<div class="bg-gradient-to-br from-primary to-primary-container p-6 rounded-xl shadow-sm text-white relative overflow-hidden">
+<div class="relative z-10">
+<p class="font-label-sm text-label-sm opacity-90 mb-1">Total Balance</p>
+<h2 class="font-display-lg text-display-lg mb-6">$42,850.24</h2>
+<div class="flex gap-3">
+<button class="bg-white text-primary font-body-lg text-body-lg px-6 py-2.5 rounded-full font-bold active:scale-95 transition-transform">
+                            Show balance
+                        </button>
+<button class="bg-white/20 backdrop-blur-md text-white border border-white/30 font-body-lg text-body-lg px-6 py-2.5 rounded-full font-bold active:scale-95 transition-transform">
+                            Transfer
+                        </button>
+</div>
+</div>
+<!-- Abstract visual element in background -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+</div>
+</section>
+<!-- Bento Grid: Accounts & Cards -->
+<section class="grid grid-cols-2 gap-card-gap">
+<!-- Account 1 -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl shadow-[0_4px_6px_-1px_rgba(0,0,0,0.04)] border border-surface-variant">
+<span class="material-symbols-outlined text-primary mb-2">account_balance_wallet</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Checking</p>
+<p class="font-headline-md text-headline-md">$12,400</p>
+</div>
+<!-- Account 2 -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl shadow-[0_4px_6px_-1px_rgba(0,0,0,0.04)] border border-surface-variant">
+<span class="material-symbols-outlined text-tertiary mb-2">savings</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Savings</p>
+<p class="font-headline-md text-headline-md">$30,450</p>
+</div>
+<!-- Interactive Card Area -->
+<div class="col-span-2 bg-surface-container-lowest p-element-padding rounded-xl shadow-[0_4px_6px_-1px_rgba(0,0,0,0.04)] border border-surface-variant flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-8 bg-inverse-surface rounded-md flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-primary-fixed-dim"></div>
+</div>
+<div>
+<p class="font-body-lg text-body-lg font-bold">Kinetic Platinum</p>
+<p class="font-body-md text-body-md text-on-surface-variant">•••• 8821</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</section>
+<!-- Transactions List Preview -->
+<section class="mt-8">
+<div class="flex justify-between items-end mb-4">
+<h3 class="font-headline-md text-headline-md">Recent Activity</h3>
+<button class="text-primary font-label-sm text-label-sm">View all</button>
+</div>
+<div class="space-y-3">
+<!-- Transaction 1 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl border border-surface-variant">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">shopping_bag</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg font-bold">Apple Store</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Electronics • Today</p>
+</div>
+</div>
+<p class="font-body-lg text-body-lg font-bold text-error">-$1,299.00</p>
+</div>
+<!-- Transaction 2 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl border border-surface-variant">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">restaurant</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg font-bold">The Green Bistro</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Dining • Yesterday</p>
+</div>
+</div>
+<p class="font-body-lg text-body-lg font-bold text-on-surface">-$42.50</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Spotlight and AI Orb Overlay Container -->
+<div class="fixed inset-0 z-[60] pointer-events-none spotlight-overlay transition-opacity duration-700"></div>
+<!-- AI Interaction Layer -->
+<div class="fixed inset-0 z-[70] pointer-events-none flex flex-col justify-end items-end p-6">
+<!-- AI Speech Bubble -->
+<div class="pointer-events-auto mb-6 mr-2 glass-card border border-primary/20 p-5 rounded-2xl rounded-br-none shadow-xl max-w-[280px] animate-float">
+<div class="flex justify-between items-center mb-2">
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">Progress: 1 of 5</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface leading-tight mb-4">Your annual KYC verification is required for continued account security. Please select 'Let's go' to begin the process.</p>
+<div class="flex flex-col gap-2">
+<button class="w-full bg-primary text-white font-bold py-3 rounded-full hover:bg-surface-tint transition-colors active:scale-95 shadow-lg shadow-primary/20">
+                    Let's go
+                </button>
+<button class="w-full py-2 text-primary font-bold text-body-md hover:underline decoration-2 underline-offset-4">
+                    Maybe later
+                </button>
+</div>
+</div>
+<!-- Kinetic AI Orb -->
+<div class="pointer-events-auto kinetic-orb-container relative w-20 h-20 mb-20 mr-2 cursor-pointer group">
+<div class="kinetic-orb-glow"></div>
+<!-- The Orb Graphic -->
+<div class="w-full h-full rounded-full bg-gradient-to-tr from-primary via-primary-container to-secondary overflow-hidden shadow-2xl relative flex items-center justify-center transition-transform group-hover:scale-110 active:scale-90 duration-300">
+<!-- Abstract Orb Pattern -->
+<div class="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'wght' 300;">motion_photos_on</span>
+<!-- Internal pulsing ring -->
+<div class="absolute inset-1 border-2 border-white/20 rounded-full animate-[spin_8s_linear_infinite]"></div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.04)] bg-surface-container-lowest h-16 px-4 pb-safe flex justify-around items-center">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all active:scale-98">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-label-sm text-label-sm">Payment</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container transition-all active:scale-98">
+<span class="material-symbols-outlined">floor</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all active:scale-98">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Hub</span>
+</button>
+</nav>
+<script>
+        // Subtle micro-interaction for the orb
+        const orb = document.querySelector('.kinetic-orb-container');
+        orb.addEventListener('click', () => {
+            // Trigger a quick pulse effect or dismiss the kyc trigger in a real app
+            console.log('Orb clicked');
+        });
+    </script>
+
+
+</body></html>

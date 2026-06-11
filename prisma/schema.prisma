@@ -142,6 +142,7 @@ model SavingsGoal {
 model KycProfile {
   id               String    @id @default(cuid())
   userId           String    @unique
+  user             User      @relation(fields: [userId], references: [id])
   step             Int       @default(0) // last completed step 0..5
   status           String    @default("IN_PROGRESS") // IN_PROGRESS | SUBMITTED
   maritalStatus    String?

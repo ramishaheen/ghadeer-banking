@@ -1,0 +1,263 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrim {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .orb-glow {
+            filter: blur(20px);
+            background: linear-gradient(135deg, #ff6b00 0%, #ffdbcc 100%);
+        }
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 20px;
+            border-width: 8px 8px 0;
+            border-style: solid;
+            border-color: #ffffff transparent transparent;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d6e3ff",
+                        "tertiary": "#405f91",
+                        "surface-tint": "#a04100",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#efddc8",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#695c4c",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "on-tertiary-fixed-variant": "#264778",
+                        "surface": "#f9f9f9",
+                        "tertiary-fixed-dim": "#a9c7ff",
+                        "primary-fixed": "#ffdbcc",
+                        "on-tertiary-container": "#093161",
+                        "on-surface-variant": "#5a4136",
+                        "surface-bright": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f1f1f1",
+                        "secondary-fixed-dim": "#d5c4b0",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f3f3f3",
+                        "on-secondary-fixed-variant": "#504535",
+                        "on-secondary-container": "#6d6150",
+                        "on-tertiary-fixed": "#001b3d",
+                        "tertiary-container": "#7b9ad0",
+                        "inverse-primary": "#ffb693",
+                        "on-background": "#1a1c1c",
+                        "background": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#a04100",
+                        "surface-container": "#eeeeee",
+                        "secondary-fixed": "#f2e0cb",
+                        "outline": "#8e7164",
+                        "on-secondary-fixed": "#231a0d",
+                        "outline-variant": "#e2bfb0",
+                        "surface-container-high": "#e8e8e8",
+                        "inverse-surface": "#2f3131",
+                        "on-primary-container": "#572000",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#351000",
+                        "primary-fixed-dim": "#ffb693",
+                        "on-surface": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#ff6b00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "0.75rem",
+                        "grid-gutter": "1rem",
+                        "element-padding": "1.25rem",
+                        "container-margin": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col overflow-hidden">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-10 flex justify-between items-center px-container-margin py-3 bg-surface">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional, close-up portrait of a user with a friendly expression. The lighting is soft and natural, emphasizing a modern fintech aesthetic. The background is a clean, neutral gray, keeping focus on the individual's professional appearance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0R_FN-xnxn8R9LwBKTvqcOTgvmu_A4x_Q6tDC8DYvH43LUjLr1N4-ShwY_outcGoZkSqtO1qgyUBKCOzNrOWqcTD85wjDFQjeS1g8NFBDnXaf8UqMsMnb_GypOs_lldG_PC-0Q8sX2zT9KhksuhtSqpnbHtNABF9WaU_BCHAcNO5wsvLwWwCEgNTPH6ujvBr88B9EU02JsISIXSTaTutXcdPXc3aZy2dASUXimRRWF97n4WR48ovt2Czb2U2p24LtTOHx7jMC_yE">
+</div>
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary">Kinetic</span>
+</div>
+<div class="active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</div>
+</header>
+<!-- Main Content (Background Screen) -->
+<main class="flex-1 mt-14 px-container-margin pt-6 overflow-y-auto pb-24">
+<!-- Physical Gold Header -->
+<section class="mb-6">
+<h1 class="font-headline-md text-headline-md mb-2">Physical Gold</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Secure your wealth with 24K pure gold bars.</p>
+</section>
+<!-- Product Preview Card -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm mb-6 border border-surface-variant">
+<div class="flex gap-4 items-center mb-4">
+<div class="w-20 h-20 bg-primary-fixed rounded-lg flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-contain" data-alt="A high-resolution, detailed image of a 5-gram PAMP Suisse gold bar, showcasing its lustrous 24-karat texture and the iconic Lady Fortuna engraving. The lighting is dramatic and warm, reflecting off the polished gold surface. It is presented on a minimalist white surface to convey a sense of premium financial investment and luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6h7gjQ7dKINGlG2-s-6Hpf7wDS0P3PfWMaMpYLY59ifglVMW7EiyBW5AW28EjvR49M4mnOg7iuA03NyRw6y7ksszFGbEtmDcmJYmU4GIT-6c_m-ovwffl-ce91HDRgkb7V380VtvrenTarGf02rUYiGk6YcXX9NgA9XmFunXNamYyckde5TsQhk8seNcmgntnBL5K9tMhNR3tvrpIiC8D40JLWmY0g_ic5RFrC0tazYyPXII9DRZOVYbw8AUwK7mM6_zUJZfxnF4">
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg">5g PAMP Gold Bar</h3>
+<p class="font-label-sm text-label-sm text-primary font-bold">24K Pure Gold</p>
+<p class="font-headline-md text-headline-md mt-1">JOD 564.727</p>
+</div>
+</div>
+<div class="flex justify-between py-3 border-t border-surface-variant">
+<span class="font-body-md text-body-md text-on-surface-variant">Purity</span>
+<span class="font-body-md text-body-md font-bold">999.9</span>
+</div>
+</div>
+<!-- Progress Indicator (Under the sheet but visible in flow) -->
+<div class="flex justify-center gap-2 mb-8">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<div class="w-6 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-surface-container-highest"></div>
+</div>
+</main>
+<!-- Scrim Overlay -->
+<div class="fixed inset-0 scrim z-40 transition-opacity duration-300"></div>
+<!-- Bottom Sheet -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest rounded-t-3xl p-6 shadow-2xl transition-transform duration-500 transform translate-y-0 max-w-md mx-auto">
+<!-- Handle -->
+<div class="w-12 h-1 bg-surface-container-highest rounded-full mx-auto mb-6"></div>
+<h2 class="font-headline-md text-headline-md mb-6 text-center">Confirm Purchase</h2>
+<!-- Purchase Details Grid -->
+<div class="space-y-4 mb-6">
+<div class="flex justify-between items-center p-3 bg-surface rounded-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+<span class="font-body-md text-body-md">Product</span>
+</div>
+<span class="font-body-md text-body-md font-bold text-right">5g PAMP Gold Bar</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface rounded-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">payments</span>
+<span class="font-body-md text-body-md">Amount</span>
+</div>
+<span class="font-body-md text-body-md font-bold text-right">JOD 564.727</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface rounded-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+<span class="font-body-md text-body-md">From</span>
+</div>
+<span class="font-body-md text-body-md font-bold text-right">Regular Demand JOD</span>
+</div>
+<!-- Toggle Segmented Control -->
+<div class="bg-surface-container p-1 rounded-xl flex">
+<button class="flex-1 bg-surface-container-lowest py-2 rounded-lg text-body-md font-bold shadow-sm">Vault</button>
+<button class="flex-1 py-2 text-body-md text-on-surface-variant">Delivery</button>
+</div>
+</div>
+<!-- Spotlight & Interaction Area -->
+<div class="relative pt-12">
+<!-- Orb Assistant -->
+<div class="absolute -top-4 left-4 z-20 flex items-start gap-3">
+<div class="relative">
+<div class="orb-glow absolute inset-0 rounded-full animate-pulse opacity-60" style="transform: scale(0.965);"></div>
+<div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-primary-fixed-dim flex items-center justify-center relative z-10 shadow-lg">
+<span class="material-symbols-outlined text-white text-[20px]" data-weight="fill">auto_awesome</span>
+</div>
+</div>
+<!-- Speech Bubble -->
+<div class="speech-bubble bg-white p-3 rounded-xl shadow-md border border-surface-variant max-w-[200px] relative">
+<p class="font-label-sm text-label-sm leading-tight text-on-surface">Transaction funds will be drawn from your Regular Demand account. Select 'Confirm' to execute at the current rate.</p>
+</div>
+</div>
+<!-- Primary Action with Spotlight -->
+<div class="relative z-10">
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
+<button class="w-full bg-primary-container text-on-primary font-body-lg text-body-lg py-4 rounded-full font-bold shadow-lg hover:scale-[1.02] active:scale-95 transition-all relative z-20">
+                    Confirm purchase
+                </button>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation (Hidden by sheet but defined for hierarchy) -->
+<nav class="fixed bottom-0 w-full z-0 h-16 bg-surface-container-lowest flex justify-around items-center px-4 rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-label-sm text-label-sm">Payment</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined">local_florist</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Hub</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for the orb
+        const orb = document.querySelector('.orb-glow');
+        let scale = 1;
+        let growing = true;
+
+        function animateOrb() {
+            if (growing) {
+                scale += 0.005;
+                if (scale >= 1.2) growing = false;
+            } else {
+                scale -= 0.005;
+                if (scale <= 0.8) growing = true;
+            }
+            orb.style.transform = `scale(${scale})`;
+            requestAnimationFrame(animateOrb);
+        }
+        animateOrb();
+    </script>
+
+
+</body></html>

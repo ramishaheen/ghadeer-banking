@@ -1,0 +1,344 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Kinetic Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f3f3f3",
+                    "primary-fixed": "#ffdbcc",
+                    "on-background": "#1a1c1c",
+                    "on-primary-fixed": "#351000",
+                    "on-surface-variant": "#5a4136",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#a04100",
+                    "tertiary-container": "#7b9ad0",
+                    "on-secondary-fixed-variant": "#504535",
+                    "on-primary-container": "#572000",
+                    "on-tertiary-container": "#093161",
+                    "on-secondary-fixed": "#231a0d",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "secondary": "#695c4c",
+                    "outline": "#8e7164",
+                    "inverse-primary": "#ffb693",
+                    "background": "#f9f9f9",
+                    "tertiary-fixed": "#d6e3ff",
+                    "inverse-on-surface": "#f1f1f1",
+                    "secondary-fixed-dim": "#d5c4b0",
+                    "tertiary": "#405f91",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#efddc8",
+                    "error": "#ba1a1a",
+                    "primary-container": "#ff6b00",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-secondary-container": "#6d6150",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f9f9f9",
+                    "surface-bright": "#f9f9f9",
+                    "secondary-fixed": "#f2e0cb",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#eeeeee",
+                    "inverse-surface": "#2f3131",
+                    "on-tertiary-fixed-variant": "#264778",
+                    "tertiary-fixed-dim": "#a9c7ff",
+                    "surface-dim": "#dadada",
+                    "primary-fixed-dim": "#ffb693",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#001b3d",
+                    "surface-tint": "#a04100",
+                    "outline-variant": "#e2bfb0",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container-high": "#e8e8e8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-margin": "1rem",
+                    "card-gap": "0.75rem",
+                    "element-padding": "1.25rem",
+                    "grid-gutter": "1rem"
+            },
+            "fontFamily": {
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f9f9f9;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim flex justify-between items-center px-container-margin py-3 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional close-up studio portrait of a young entrepreneur with a friendly expression. The lighting is soft and high-key, emphasizing a clean and corporate modern aesthetic. The background is a minimalist, light gray gradient that feels spacious and premium, consistent with a high-end fintech app's user profile interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI1NqtXBSR40VybEiIrSWNH6cYaOE_9Kj8tkMwzLsaVbEU2iTK7tpMi3gGv7JYiJNIS3TLJkQWRVkFygcVEivNpFYh5OHnH2pkW_wh0DRSkgRMZcjwsTrbGlzcvc3D5BNkEUpfenPwUXdGxmpfYsW7xcitqMhfYo6AhCnESaSWT5Gv8OzxbP7NvTLjCnt5KRXIjFOiw4CeK5d3b69uBy5-0UsRKRbwILx3TpYQ4aeTbIEiZTyElwVd9FiKtRzYoWvEiOjPm_44ry8">
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-inverse-primary">Kinetic</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</header>
+<main class="pt-20 pb-32 px-container-margin">
+<!-- Search Bar -->
+<div class="mb-8">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full h-12 bg-surface-container-low border-none rounded-xl pl-12 pr-4 font-body-md text-on-surface focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search services..." type="text">
+</div>
+</div>
+<!-- Featured Hub Banner (Visual Anchor) -->
+<div class="relative w-full aspect-[2/1] rounded-2xl overflow-hidden mb-8 shadow-sm">
+<img alt="Featured Service" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUfdi7DWS-BhjB6voWF9krV563_Q1IvzLmxUD2OXpgPRy4rnmTw8psjnS_RjOTGa9yZiaJAofEa4mHgeUI641zI9QZC5d6FROya1_9QRQhBRgsnhhYJdVigAcnYQJINXfVYqhLiZb0uFCGRBEGkdY_RSTslKHIQOKfp32-H3T3zsWF5sA6fqDBsUz3CBXUoWLT-GL4vl6y85tYtEgTv_ZUpsnuKAwuvesfTtOzym5IevgKrGLcuvvEN6V1n2HnYb65jtXVIIcDHr0">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-element-padding">
+<span class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-0.5 rounded-full w-fit mb-2">FEATURED</span>
+<h2 class="text-white font-headline-md text-headline-md-mobile leading-tight">Secure Your Future with Kinetic Wealth</h2>
+</div>
+</div>
+<!-- Products Section -->
+<section class="mb-10">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-md text-headline-md-mobile text-on-surface">Products</h3>
+<button class="text-primary font-label-sm text-label-sm">See all</button>
+</div>
+<div class="hub-grid">
+<!-- Bills -->
+<div class="flex flex-col items-center gap-2 group active:scale-95 transition-transform">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center text-primary shadow-sm group-hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-[32px]">receipt_long</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant">Bills</span>
+</div>
+<!-- Loans -->
+<div class="flex flex-col items-center gap-2 group active:scale-95 transition-transform">
+<div class="w-16 h-16 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">payments</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant">Loans</span>
+</div>
+<!-- Savings Goals -->
+<div class="flex flex-col items-center gap-2 group active:scale-95 transition-transform relative">
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full z-10">NEW</span>
+<div class="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">savings</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant">Savings</span>
+</div>
+<!-- Cards -->
+<div class="flex flex-col items-center gap-2 group active:scale-95 transition-transform">
+<div class="w-16 h-16 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">credit_card</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant">Cards</span>
+</div>
+<!-- Safety Box -->
+<div class="flex flex-col items-center gap-2 group active:scale-95 transition-transform">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">lock</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant leading-tight">Safety Box</span>
+</div>
+<!-- Cheques -->
+<div class="flex flex-col items-center gap-2 group active:scale-95 transition-transform">
+<div class="w-16 h-16 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">account_balance_wallet</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant">Cheques</span>
+</div>
+<!-- FlexiPay -->
+<div class="flex flex-col items-center gap-2 group active:scale-95 transition-transform relative">
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full z-10">NEW</span>
+<div class="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">splitscreen</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant">FlexiPay</span>
+</div>
+<!-- Memberships -->
+<div class="flex flex-col items-center gap-2 group active:scale-95 transition-transform">
+<div class="w-16 h-16 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">card_membership</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant">Members</span>
+</div>
+</div>
+<!-- Subscription Manager Card (Asymmetric Layout) -->
+<div class="mt-6 p-4 bg-white rounded-2xl shadow-sm border border-surface-container flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">subscriptions</span>
+</div>
+<div>
+<p class="font-body-lg text-on-surface">Subscription Manager</p>
+<p class="font-body-md text-on-surface-variant">3 active renewals this week</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+</section>
+<!-- Investment Section -->
+<section class="mb-10">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-md text-headline-md-mobile text-on-surface">Investment</h3>
+<button class="text-primary font-label-sm text-label-sm">Expand</button>
+</div>
+<div class="hub-grid">
+<!-- Stocks -->
+<div class="flex flex-col items-center gap-2 group active:scale-95 transition-transform">
+<div class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white shadow-md">
+<span class="material-symbols-outlined text-[32px]">trending_up</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant">Stocks</span>
+</div>
+<!-- Manage Wealth -->
+<div class="flex flex-col items-center gap-2 group active:scale-95 transition-transform">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">monitoring</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant">Wealth</span>
+</div>
+<!-- Deposits -->
+<div class="flex flex-col items-center gap-2 group active:scale-95 transition-transform">
+<div class="w-16 h-16 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">account_balance</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant">Deposits</span>
+</div>
+<!-- Physical Gold -->
+<div class="relative">
+<a class="flex flex-col items-center gap-2 group active:scale-95 transition-transform relative" href="{{DATA:SCREEN:SCREEN_9}}">
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full z-10">HOT</span>
+<div class="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">diamond</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant">Gold</span>
+</a>
+<!-- AI Tutorial Tooltip -->
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 bg-surface-container-lowest border-2 border-primary/20 rounded-2xl p-4 shadow-xl z-50 animate-bounce">
+<button class="absolute top-2 right-2 text-outline-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+<div class="flex gap-3">
+<div class="shrink-0 w-10 h-10 rounded-full border border-primary-fixed overflow-hidden bg-white">
+<img alt="AI Assistant" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoX3tPhfdTiRGW-9U2U79xXwn4TDjmZuosHvUKtdkCwtC7TZKiHnGAfbRe4DM5Ge0yX-IUuoGsZ68-X6fu_zoF4SyrEgLzUtXaKlVExIFmp-Hbo9xP7MzTgyY2-lLNEv2JdIlwEEKqTHQ_XdHh6CcJ_wpxCYrXDiU3IOhcyvgOUyDN1jwrdZcnXnn5f5hPhj8plAhQETgej5o85AY3NUq7ek_A6mq4GO0WjdOFPRx7YQVKpXFjKRAUWU17CSdcVMEtJ25QNjnuiII">
+</div>
+<div class="flex-1">
+<p class="text-[13px] font-body-md text-on-surface leading-snug">Gold remains a strong asset for portfolio stability. I can provide current performance metrics if you wish to proceed.</p>
+</div>
+</div>
+<!-- Tooltip Arrow -->
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-surface-container-lowest border-r-2 border-b-2 border-primary/20 rotate-45"></div>
+</div>
+</div>
+</div>
+<!-- Detailed Asset Card -->
+<div class="mt-6 grid grid-cols-2 gap-4">
+<div class="p-4 bg-primary-container/10 rounded-2xl border border-primary/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-primary uppercase tracking-wider">Premium</span>
+</div>
+<p class="font-body-md font-bold text-on-surface">Precious Metals</p>
+<p class="font-label-sm text-on-surface-variant mt-1">Invest in Silver &amp; Platinum</p>
+</div>
+<div class="p-4 bg-surface-container rounded-2xl border border-outline-variant/30 flex flex-col justify-center items-center text-center">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm mb-2">
+<span class="material-symbols-outlined text-primary">add</span>
+</div>
+<p class="font-label-sm font-bold text-on-surface">Add Custom</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.04)] bg-surface-container-lowest dark:bg-inverse-surface flex justify-around items-center w-full h-16 px-4 pb-safe">
+<!-- Payment -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+<span class="font-label-sm text-label-sm">Payment</span>
+</a>
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="flower">local_florist</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- Hub (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-label-sm text-label-sm">Hub</span>
+</a>
+</nav>
+<script>
+        // Subtle micro-interactions
+        document.querySelectorAll('.active\\:scale-95').forEach(el => {
+            el.addEventListener('click', () => {
+                setTimeout(() => {
+                    el.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+
+        // Search bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        const searchContainer = searchInput.parentElement;
+        
+        searchInput.addEventListener('focus', () => {
+            searchContainer.classList.add('ring-2', 'ring-primary/20');
+        });
+        
+        searchInput.addEventListener('blur', () => {
+            searchContainer.classList.remove('ring-2', 'ring-primary/20');
+        });
+    </script>
+
+
+</body></html>

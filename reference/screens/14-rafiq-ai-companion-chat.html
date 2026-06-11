@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="ltr" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Rafiq AI - Mobile Companion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&amp;family=IBM+Plex+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-glow {
+            filter: blur(80px);
+            background: radial-gradient(circle, rgba(218, 83, 44, 0.15) 0%, rgba(218, 83, 44, 0) 70%);
+        }
+        .glass-panel {
+            background: rgba(42, 42, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .rafiq-input-glow {
+            box-shadow: 0 0 20px rgba(218, 83, 44, 0.2);
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            background-color: #131313;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb955",
+                        "primary-container": "#f1643b",
+                        "surface-container": "#20201f",
+                        "on-tertiary-fixed": "#291800",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-fixed": "#3b0900",
+                        "secondary-container": "#922601",
+                        "tertiary": "#ffb955",
+                        "tertiary-container": "#c68200",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#862200",
+                        "background": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#393939",
+                        "secondary-fixed-dim": "#ffb5a0",
+                        "primary-fixed-dim": "#ffb5a0",
+                        "on-background": "#e5e2e1",
+                        "on-primary-container": "#541100",
+                        "primary-fixed": "#ffdbd1",
+                        "inverse-on-surface": "#313030",
+                        "on-primary": "#601400",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "on-surface": "#e5e2e1",
+                        "surface": "#131313",
+                        "outline": "#a88a82",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-primary": "#ad330d",
+                        "on-tertiary": "#452b00",
+                        "on-secondary-fixed": "#3b0a00",
+                        "surface-tint": "#ffb5a0",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-dim": "#131313",
+                        "error-container": "#93000a",
+                        "inverse-surface": "#e5e2e1",
+                        "on-secondary-container": "#ffaa92",
+                        "error": "#ffb4ab",
+                        "secondary": "#ffb5a0",
+                        "secondary-fixed": "#ffdbd1",
+                        "on-secondary": "#5f1500",
+                        "primary": "#ffb5a0",
+                        "tertiary-fixed": "#ffddb4",
+                        "on-tertiary-container": "#3c2500",
+                        "outline-variant": "#59413b",
+                        "surface-variant": "#353535",
+                        "surface-container-highest": "#353535",
+                        "on-surface-variant": "#e1bfb6",
+                        "on-primary-fixed-variant": "#872100"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "container-padding": "20px",
+                        "base": "4px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "xs": "8px",
+                        "sm": "12px",
+                        "stack-gap": "12px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["IBM Plex Serif"],
+                        "label-sm": ["IBM Plex Sans"],
+                        "display-lg": ["IBM Plex Serif"],
+                        "body-lg": ["IBM Plex Sans"],
+                        "headline-md": ["IBM Plex Serif"],
+                        "body-md": ["IBM Plex Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-hidden h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-container-padding py-md h-16">
+<div class="flex items-center gap-xs">
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[20px]" style="font-variation-settings: 'FILL' 1;">incomplete_circle</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-display-lg-mobile text-[20px] uppercase tracking-tighter text-on-surface">RAFIQ</span>
+<span class="text-primary font-headline-md text-[18px]">رفيق</span>
+</div>
+</div>
+<div class="flex gap-md items-center">
+<button class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity">notifications</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-white/10 overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ5uDe4qU54aeLCGBZEJkmXUBvTC0DUsu_ly2Ec2yjrd9sNTMpgQOrjI_op-M-PQHy0dKJzW_R6xvf_faYpJ7oxP9TZf6jXKPkBSK2Mrhwp9ULBIT4JxpSlU8ofBJbTLaKHs8Hel4P2WOFXMtQSPa94NQaYysA26Bk2BgSjKdn0HN9apQtDn-GjPIrTXk-J_p3rNGE2T9I7DWap70V6Va58mHc-iaRu0R36bgT_JvYVZ9USHXQrbpgMzpLDYNBxgSzqrcCsM86Dz8"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="flex-1 overflow-y-auto pt-20 pb-40 px-container-padding space-y-lg relative">
+<!-- Kinetic Glow background element -->
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-64 h-64 kinetic-glow pointer-events-none"></div>
+<!-- Greeting Card -->
+<section class="relative overflow-hidden rounded-xl p-lg bg-gradient-to-br from-[#DA532C] to-[#B53F1A] shadow-xl">
+<div class="relative z-10 space-y-xs">
+<p class="font-body-md text-white/90">Good morning, Ahmed. You have 3 new insights today.</p>
+<p class="font-body-md text-white text-right" dir="rtl">صباح الخير يا أحمد. لديك 3 رؤى جديدة اليوم.</p>
+</div>
+<!-- Decorative wave or glow could go here -->
+<div class="absolute -right-4 -bottom-8 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined text-[120px] text-white">insights</span>
+</div>
+</section>
+<!-- Chat Area -->
+<div class="space-y-lg flex flex-col">
+<!-- User Bubble -->
+<div class="flex flex-col items-end w-full max-w-[85%] self-end">
+<div class="bg-primary-container text-white px-md py-sm rounded-2xl rounded-tr-none shadow-md">
+<p class="font-body-md">Why was I charged SAR 150 yesterday?</p>
+</div>
+<span class="text-[10px] text-outline mt-1 px-1">10:42 AM</span>
+</div>
+<!-- Rafiq Bubble -->
+<div class="flex flex-col items-start w-full max-w-[90%] self-start animate-in fade-in slide-in-from-left duration-500">
+<div class="flex gap-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center mt-1 border border-white/5">
+<span class="material-symbols-outlined text-[14px] text-primary">incomplete_circle</span>
+</div>
+<div class="glass-panel p-md rounded-2xl rounded-tl-none space-y-md">
+<div class="space-y-xs">
+<p class="font-body-md text-on-surface">That was your Netflix subscription renewal. You spend SAR 450/month on subscriptions.</p>
+<p class="font-body-lg text-primary-fixed-dim font-semibold">Want a full breakdown?</p>
+</div>
+<button class="w-full py-sm px-md bg-primary-container text-white rounded-lg flex items-center justify-center gap-xs font-label-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">analytics</span>
+                            View Report
+                        </button>
+</div>
+</div>
+<span class="text-[10px] text-outline mt-1 ml-10">Rafiq AI • Just now</span>
+</div>
+</div>
+<!-- Quick Action Chips -->
+<section class="flex gap-sm overflow-x-auto pb-4 pt-2 -mx-2 px-2 no-scrollbar">
+<button class="flex-shrink-0 flex items-center gap-xs px-md py-sm rounded-full glass-panel border-white/5 whitespace-nowrap active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary text-[18px]">account_balance_wallet</span>
+<span class="font-label-sm text-on-surface-variant">Check Balance / رصيد</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-xs px-md py-sm rounded-full glass-panel border-white/5 whitespace-nowrap active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary text-[18px]">payments</span>
+<span class="font-label-sm text-on-surface-variant">Transfer Money / تحويل</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-xs px-md py-sm rounded-full glass-panel border-white/5 whitespace-nowrap active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary text-[18px]">savings</span>
+<span class="font-label-sm text-on-surface-variant">Savings Goal / هدف الادخار</span>
+</button>
+</section>
+</main>
+<!-- Bottom Input Area (The "Rafiq" Bar) -->
+<div class="fixed bottom-0 w-full z-50 bg-background/50 backdrop-blur-2xl pb-safe">
+<!-- Floating FAB or Quick Options contextually hidden as per instruction -->
+<div class="px-container-padding py-md">
+<div class="flex items-center gap-sm bg-surface-container-high rounded-full p-1 border border-white/10 rafiq-input-glow">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">mic</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface font-body-md py-2 px-1" placeholder="Talk to Rafiq..." type="text"/>
+<button class="w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar Shell -->
+<nav class="flex justify-around items-center h-16 px-xl bg-surface-container/80 backdrop-blur-2xl border-t border-white/5">
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full p-2.5 transition-all duration-200 scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">insights</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</nav>
+</div>
+<!-- Micro-interaction Scripts -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.querySelector('input');
+            const sendBtn = document.querySelector('.bg-primary-container.rounded-full');
+            
+            // Subtle pulse for the AI bar
+            setInterval(() => {
+                const bar = document.querySelector('.rafiq-input-glow');
+                bar.classList.toggle('ring-1');
+                bar.classList.toggle('ring-primary/20');
+            }, 2000);
+
+            // Simple click feedback
+            sendBtn.addEventListener('click', () => {
+                if(input.value.trim() !== '') {
+                    console.log('Sending message:', input.value);
+                    input.value = '';
+                }
+            });
+
+            // RTL support for specific Arabic inputs if needed
+            input.addEventListener('input', (e) => {
+                const arabic = /[\u0600-\u06FF]/;
+                if (arabic.test(e.target.value)) {
+                    input.style.direction = 'rtl';
+                } else {
+                    input.style.direction = 'ltr';
+                }
+            });
+        });
+    </script>
+</body></html>

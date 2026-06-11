@@ -1,0 +1,272 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#a9c7ff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-fixed": "#231a0d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-container": "#572000",
+                        "surface-container-low": "#f3f3f3",
+                        "secondary-container": "#efddc8",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "tertiary-fixed": "#d6e3ff",
+                        "background": "#f9f9f9",
+                        "surface-tint": "#a04100",
+                        "secondary-fixed": "#f2e0cb",
+                        "on-tertiary-fixed-variant": "#264778",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-variant": "#e2e2e2",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-surface": "#2f3131",
+                        "surface": "#f9f9f9",
+                        "primary": "#a04100",
+                        "on-secondary": "#ffffff",
+                        "outline": "#8e7164",
+                        "on-primary-fixed": "#351000",
+                        "on-secondary-container": "#6d6150",
+                        "inverse-primary": "#ffb693",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary": "#695c4c",
+                        "on-surface": "#1a1c1c",
+                        "error": "#ba1a1a",
+                        "tertiary": "#405f91",
+                        "on-tertiary-fixed": "#001b3d",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-container": "#093161",
+                        "primary-fixed": "#ffdbcc",
+                        "primary-container": "#ff6b00",
+                        "outline-variant": "#e2bfb0",
+                        "secondary-fixed-dim": "#d5c4b0",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#7b9ad0",
+                        "on-secondary-fixed-variant": "#504535",
+                        "on-surface-variant": "#5a4136"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "0.75rem",
+                        "grid-gutter": "1rem",
+                        "container-margin": "1rem",
+                        "element-padding": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        .scrim-overlay {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(2px);
+        }
+
+        .orb-float {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .spotlight {
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6);
+            z-index: 60;
+        }
+
+        .shimmer-bg {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen overflow-x-hidden">
+<!-- Top App Bar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-surface flex justify-between items-center px-container-margin py-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border-2 border-primary-fixed-dim">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional studio portrait of a young adult with a friendly expression, captured with high-end lighting that highlights natural skin tones. The background is a soft, out-of-focus neutral gray, aligning with a corporate yet approachable fintech aesthetic. The lighting is bright and clean, emphasizing a sense of reliability and modern professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnWH4ze5TZucUWRr3udL7aF3BUZFWcbbItbC9tiQeuz3FQiWZ4SxIfC8BNvskMnkoiY9nEaPif9NOfvvABaWzw0QtZ6CZt9gIl-AbqwLbjzyWyMxIYgBwgKmu_6_hd_UEEi36UOGMnyqz1Jy24eaW2Xcyu1MBPhVoPL4gWP7KpRUGP_e25k1RH_y1XhFaethNIKV4BGUl0vZ41-EW-6ADvjgz2KibF4fm1mOx_tLfpY-AEe1-O4-0b5Xrd9PN64VLMf700SVlplZs">
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary">Kinetic</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="pt-20 pb-24 px-container-margin min-h-screen">
+<!-- Progress Indicator -->
+<div class="flex items-center justify-between mb-6">
+<div class="flex gap-1.5">
+<div class="h-1.5 w-6 rounded-full bg-primary"></div>
+<div class="h-1.5 w-6 rounded-full bg-primary"></div>
+<div class="h-1.5 w-6 rounded-full bg-primary"></div>
+<div class="h-1.5 w-6 rounded-full bg-primary"></div>
+<div class="h-1.5 w-12 rounded-full bg-primary shadow-sm"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Step 5 of 5</span>
+</div>
+<!-- Summary Section (Bento Grid Style) -->
+<div class="grid grid-cols-1 gap-card-gap">
+<!-- Hero Summary Card -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl shadow-sm border border-surface-variant/30">
+<h2 class="font-headline-md text-headline-md-mobile text-on-surface mb-4">Review Update</h2>
+<div class="space-y-4">
+<div class="flex items-center justify-between py-2 border-b border-surface-variant/20">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Account Type</p>
+<p class="font-body-lg text-body-lg text-on-surface">Premium Kinetic Flex</p>
+</div>
+<span class="material-symbols-outlined text-primary/60">verified</span>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-surface-variant/20">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Daily Limit</p>
+<p class="font-body-lg text-body-lg text-on-surface">$15,000.00</p>
+</div>
+<span class="material-symbols-outlined text-primary/60">trending_up</span>
+</div>
+<div class="flex items-center justify-between py-2">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Verification</p>
+<p class="font-body-lg text-body-lg text-on-surface">Biometric ID Enabled</p>
+</div>
+<span class="material-symbols-outlined text-primary/60">fingerprint</span>
+</div>
+</div>
+</div>
+<!-- Contextual Card -->
+<div class="bg-primary/5 p-element-padding rounded-xl border border-primary/10">
+<div class="flex items-start gap-3">
+<div class="p-2 bg-primary-fixed rounded-lg">
+<span class="material-symbols-outlined text-primary">info</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg text-on-primary-container font-semibold">Ready for submission</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Changes to your transfer limits will take effect immediately after the final authorization.</p>
+</div>
+</div>
+</div>
+<!-- Reference Image Area -->
+<div class="rounded-xl overflow-hidden aspect-[16/9] bg-surface-container-high relative group">
+<img alt="Summary Visual" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3GXPn_buzHHq85-Fn0zm0SprIt9yBpjcTiJc7DD2JjuMWCqBvH4UdZrwuy7W-eZtB-P64DWMKtouMfs8sBUqtNtogYijIhvRhL0Nj2YCbxDEvG9iUrthvmM241CtP4fSIKCNev47CWyotzGHs6ENtbg67DnGvKpfG9u-atM4FbhsckKk0l-JvPn2m-VQDk9WNd7c50J3oFZzgcQSWDuQE9nfUWJSyGgOJW28DQR2rFK0YS5XOM0vGDflD0Luk3eZfMO42uXn6T6g">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+<p class="text-white font-label-sm text-label-sm">Transaction System Update Finalization</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Scrim & Interaction Layer -->
+<div class="fixed inset-0 z-[55] scrim-overlay transition-opacity duration-500" id="final-scrim">
+<!-- Floating Orb AI Assistant -->
+<div class="absolute bottom-40 left-1/2 -translate-x-1/2 w-full px-container-margin flex flex-col items-center">
+<div class="orb-float mb-6">
+<div class="w-20 h-20 rounded-full bg-gradient-to-tr from-primary to-primary-container shadow-[0_0_40px_rgba(160,65,0,0.6)] flex items-center justify-center relative">
+<div class="absolute inset-0 rounded-full border-2 border-white/30 animate-ping"></div>
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</div>
+<div class="bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/50 max-w-xs text-center">
+<p class="font-body-lg text-body-lg text-on-surface leading-snug">Your KYC data is ready for processing. Please select 'Submit' to authorize the final transmission.</p>
+</div>
+</div>
+<!-- Spotlighted Submit Button -->
+<div class="fixed bottom-0 left-0 w-full p-container-margin z-[65]">
+<button class="relative w-full h-16 bg-primary text-white rounded-full font-bold text-lg shadow-2xl spotlight active:scale-95 transition-all flex items-center justify-center gap-2 overflow-hidden">
+<div class="absolute inset-0 shimmer-bg opacity-30"></div>
+<span class="relative">Submit</span>
+<span class="material-symbols-outlined relative">arrow_forward</span>
+</button>
+<button class="w-full text-center mt-6 text-white/70 font-label-sm text-label-sm py-2" onclick="document.getElementById('final-scrim').classList.add('hidden')">
+                Review again
+            </button>
+</div>
+</div>
+<!-- Bottom Nav (Shared Component) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.04)] flex justify-around items-center h-16 px-4 pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-label-sm text-label-sm">Payment</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer">
+<span class="material-symbols-outlined">floor</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container transition-all cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-label-sm text-label-sm">Hub</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for the submit button
+        const submitBtn = document.querySelector('.spotlight');
+        submitBtn.addEventListener('click', () => {
+            submitBtn.innerHTML = `
+                <span class="material-symbols-outlined animate-spin">progress_activity</span>
+                <span>Processing...</span>
+            `;
+            setTimeout(() => {
+                alert('Update Submitted Successfully!');
+                window.location.reload();
+            }, 1500);
+        });
+    </script>
+
+
+
+
+</body></html>

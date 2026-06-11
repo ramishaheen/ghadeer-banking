@@ -1,0 +1,245 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .orb-float {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+            100% { transform: translateY(0px) scale(1); }
+        }
+        .scrim-overlay {
+            background: rgba(26, 28, 28, 0.65);
+            backdrop-filter: blur(4px);
+        }
+        .spotlight-clip {
+            position: relative;
+            z-index: 60;
+            background: white !important;
+            box-shadow: 0 0 0 9999px rgba(26, 28, 28, 0.65);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#a9c7ff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-fixed": "#231a0d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-container": "#572000",
+                        "surface-container-low": "#f3f3f3",
+                        "secondary-container": "#efddc8",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "tertiary-fixed": "#d6e3ff",
+                        "background": "#f9f9f9",
+                        "surface-tint": "#a04100",
+                        "secondary-fixed": "#f2e0cb",
+                        "on-tertiary-fixed-variant": "#264778",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-variant": "#e2e2e2",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-surface": "#2f3131",
+                        "surface": "#f9f9f9",
+                        "primary": "#a04100",
+                        "on-secondary": "#ffffff",
+                        "outline": "#8e7164",
+                        "on-primary-fixed": "#351000",
+                        "on-secondary-container": "#6d6150",
+                        "inverse-primary": "#ffb693",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary": "#695c4c",
+                        "on-surface": "#1a1c1c",
+                        "error": "#ba1a1a",
+                        "tertiary": "#405f91",
+                        "on-tertiary-fixed": "#001b3d",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-container": "#093161",
+                        "primary-fixed": "#ffdbcc",
+                        "primary-container": "#ff6b00",
+                        "outline-variant": "#e2bfb0",
+                        "secondary-fixed-dim": "#d5c4b0",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#7b9ad0",
+                        "on-secondary-fixed-variant": "#504535",
+                        "on-surface-variant": "#5a4136"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "0.75rem",
+                        "grid-gutter": "1rem",
+                        "container-margin": "1rem",
+                        "element-padding": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background font-body-md text-on-background min-h-screen flex flex-col overflow-x-hidden">
+<!-- Top App Bar (As specified in JSON) -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim flex justify-between items-center px-container-margin py-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqCfY67vC-4BVeo8_IkbB2Q4cnzfqNDdgWshojSUKdyHOejdzIKDRtsjyRJC0mE706NieIjIc3GSix7NaKtCF2P9MR9D-70u1q-y75BQurrp7VAv5lWsF878NOAg4hUAJsZoofOylgxok3_PX63-xlZY9E3NnNU3lbjf8ARzp-2hE6_toCQwE1GKKngD4sODq4XqfZniLRAguM-InfpM4NyxU7keMirud_52N-lz4l5qxHycwNTPxsvWUk9IOi_q2Xk0mFshGbz14">
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-inverse-primary">Kinetic</h1>
+</div>
+<button class="material-symbols-outlined text-primary dark:text-inverse-primary hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors p-2 rounded-full active:scale-95 duration-150">
+            notifications
+        </button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow pt-20 pb-24 px-container-margin relative">
+<!-- Checklist Section -->
+<section class="space-y-6">
+<div class="flex flex-col gap-2">
+<h2 class="font-headline-md text-headline-md-mobile text-on-surface">Application Checklist</h2>
+<div class="flex items-center gap-2">
+<div class="flex-grow bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[40%]" style="width: 40%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 of 5</span>
+</div>
+</div>
+<!-- Checklist Cards -->
+<div class="space-y-card-gap">
+<!-- Identity Card (Completed) -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl flex items-center gap-4 opacity-60">
+<div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-green-600" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg text-on-surface">Identity Verification</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Verified via document scan</p>
+</div>
+</div>
+<!-- Personal Details Card (Spotlight) -->
+<div class="spotlight-clip p-element-padding rounded-xl flex items-center gap-4 transition-all duration-300 relative" style="transform: scale(1);">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold">Personal Details</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Required for your account</p>
+</div>
+<span class="material-symbols-outlined text-primary-container">arrow_forward_ios</span>
+<!-- Guidance Orb -->
+<div class="absolute -left-8 top-1/2 -translate-y-1/2 z-[70] orb-float">
+<div class="w-4 h-4 bg-primary-container rounded-full shadow-[0_0_15px_rgba(255,107,0,0.8)]"></div>
+</div>
+<!-- Speech Bubble -->
+<div class="absolute left-[-1rem] top-[110%] w-64 bg-primary text-on-primary p-4 rounded-xl shadow-lg z-[70] animate-bounce-subtle">
+<div class="absolute -top-2 left-4 w-4 h-4 bg-primary transform rotate-45"></div>
+<p class="font-body-md text-body-md leading-snug">We will begin with your personal information. This process is designed for efficiency.</p>
+</div>
+</div>
+<!-- Contact Details -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">mail</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg text-on-surface">Contact Information</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Email and phone number</p>
+</div>
+</div>
+<!-- Employment -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">work</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg text-on-surface">Employment Status</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Current source of income</p>
+</div>
+</div>
+<!-- Financial Goals -->
+<div class="bg-surface-container-lowest p-element-padding rounded-xl flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">trending_up</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-body-lg text-body-lg text-on-surface">Financial Goals</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Personalize your hub</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Primary Action -->
+<div class="mt-8 flex justify-center">
+<button class="bg-primary-container text-on-primary-container font-bold px-12 py-4 rounded-full shadow-md active:scale-95 transition-transform">
+                Next
+            </button>
+</div>
+</main>
+<!-- Bottom Nav Bar (As specified in JSON) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.04)] bg-surface-container-lowest dark:bg-inverse-surface flex justify-around items-center h-16 px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-all rounded-lg p-1" href="#">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-label-sm text-label-sm">Payment</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold hover:bg-surface-container dark:hover:bg-surface-variant transition-all rounded-lg p-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">floor</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-all rounded-lg p-1" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Hub</span>
+</a>
+</nav>
+<!-- Interactions -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Subtle pulse interaction for the spotlight card
+            const spotlight = document.querySelector('.spotlight-clip');
+            setInterval(() => {
+                spotlight.style.transform = 'scale(1.01)';
+                setTimeout(() => {
+                    spotlight.style.transform = 'scale(1)';
+                }, 1000);
+            }, 3000);
+        });
+    </script>
+
+
+</body></html>

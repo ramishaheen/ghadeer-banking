@@ -1,0 +1,301 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f3f3f3",
+                        "primary-fixed": "#ffdbcc",
+                        "on-background": "#1a1c1c",
+                        "on-primary-fixed": "#351000",
+                        "on-surface-variant": "#5a4136",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#a04100",
+                        "tertiary-container": "#7b9ad0",
+                        "on-secondary-fixed-variant": "#504535",
+                        "on-primary-container": "#572000",
+                        "on-tertiary-container": "#093161",
+                        "on-secondary-fixed": "#231a0d",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "secondary": "#695c4c",
+                        "outline": "#8e7164",
+                        "inverse-primary": "#ffb693",
+                        "background": "#f9f9f9",
+                        "tertiary-fixed": "#d6e3ff",
+                        "inverse-on-surface": "#f1f1f1",
+                        "secondary-fixed-dim": "#d5c4b0",
+                        "tertiary": "#405f91",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#efddc8",
+                        "error": "#ba1a1a",
+                        "primary-container": "#ff6b00",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-container": "#6d6150",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "surface-bright": "#f9f9f9",
+                        "secondary-fixed": "#f2e0cb",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#eeeeee",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-fixed-variant": "#264778",
+                        "tertiary-fixed-dim": "#a9c7ff",
+                        "surface-dim": "#dadada",
+                        "primary-fixed-dim": "#ffb693",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#001b3d",
+                        "surface-tint": "#a04100",
+                        "outline-variant": "#e2bfb0",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "1rem",
+                        "card-gap": "0.75rem",
+                        "element-padding": "1.25rem",
+                        "grid-gutter": "1rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .active-segment {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .gold-card-shadow {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24">
+<!-- Top AppBar (Generated from JSON guidance) -->
+<header class="fixed top-0 w-full z-50 bg-surface flex justify-between items-center px-container-margin py-3 border-none">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile text-primary">Physical Gold</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkKk5GD2AlYLEU4qPs0N32R7brZlcmXTqhl1q9TQPwOIbih6rzwxp8Ckr7Fn8ElQu4ZgyTHu6qFsV-BLU1tariZLUgcEFC8qHfv-SlX5bqrNt_RgG3Tdbp_4SrUXAOT9gMuM1z5qUglM_CjRzRobL7MAMB6IEiheebvkY6EJFg7mXIopaq4v5sKdpTQcEc3MndReXDhUPuPzU0bmfLhnoUjInCwYpgmOCnmfdrmsTFoS6NXQXjp0ISlhtMtyn8eXOx66kzyb7Hj00">
+</div>
+</div>
+</header>
+<main class="mt-16 px-container-margin pt-4">
+<!-- Segmented Control -->
+<div class="bg-surface-container flex p-1 rounded-xl mb-6">
+<button class="flex-1 py-2 text-label-sm font-label-sm rounded-lg bg-surface-container-lowest text-primary active-segment transition-all" id="explore-tab">
+                Explore
+            </button>
+<button class="flex-1 py-2 text-label-sm font-label-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" id="orders-tab">
+                My orders
+            </button>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-2 gap-card-gap">
+<!-- Card 1: 1g -->
+<div class="bg-surface-container-lowest rounded-xl p-3 gold-card-shadow flex flex-col relative group overflow-hidden border border-surface-container">
+<div class="aspect-square rounded-lg bg-surface-container-low mb-3 flex items-center justify-center overflow-hidden">
+<div class="w-full h-full relative">
+<img alt="PAMP Gold Bar" class="w-full h-full object-contain p-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBueRv1OTrQn2I64TloiFLjxE5zp9mwLGutwdc_jlTVOek455Fm5uGZkJcU8YP8sqjpnH5PxQK5bVWfhvFAIGBc0LQFX66V-p5GcRhZsTKXQD-mRUXDSAkjVCrjzldxx8dRjTe2PbwrKlkLjffD97F9mg-XFHQZH5mMYz3BwgE8f4e7xyUjes5yHoatoocGrrUUAMrMOQZqQMDgJELhMzy8_0Eu8EizWbwq7NDAWvfk55jn8lmUbZDLJkff0MB41xZ5mk75VPD0ogA">
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-label-sm font-label-sm text-primary uppercase tracking-wider">1g</p>
+<h3 class="text-body-md font-body-md font-bold text-on-background leading-tight">PAMP Gold Minted Bar</h3>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-2">68.50 JOD</p>
+</div>
+<button class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Card 2: 5g -->
+<div class="bg-surface-container-lowest rounded-xl p-3 gold-card-shadow flex flex-col relative group overflow-hidden border border-surface-container">
+<div class="aspect-square rounded-lg bg-surface-container-low mb-3 flex items-center justify-center overflow-hidden">
+<div class="w-full h-full relative">
+<img alt="PAMP Gold Bar" class="w-full h-full object-contain p-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBueRv1OTrQn2I64TloiFLjxE5zp9mwLGutwdc_jlTVOek455Fm5uGZkJcU8YP8sqjpnH5PxQK5bVWfhvFAIGBc0LQFX66V-p5GcRhZsTKXQD-mRUXDSAkjVCrjzldxx8dRjTe2PbwrKlkLjffD97F9mg-XFHQZH5mMYz3BwgE8f4e7xyUjes5yHoatoocGrrUUAMrMOQZqQMDgJELhMzy8_0Eu8EizWbwq7NDAWvfk55jn8lmUbZDLJkff0MB41xZ5mk75VPD0ogA">
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-label-sm font-label-sm text-primary uppercase tracking-wider">5g</p>
+<h3 class="text-body-md font-body-md font-bold text-on-background leading-tight">PAMP Gold Minted Bar</h3>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-2">325.20 JOD</p>
+</div>
+<button class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Card 3: 10g (Out of Stock) -->
+<div class="bg-surface-container-lowest rounded-xl p-3 gold-card-shadow flex flex-col relative group overflow-hidden border border-surface-container opacity-90">
+<div class="absolute top-2 left-2 z-10 bg-surface-container-highest px-2 py-0.5 rounded-full">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Out of stock</span>
+</div>
+<div class="aspect-square rounded-lg bg-surface-container-low mb-3 flex items-center justify-center overflow-hidden grayscale">
+<div class="w-full h-full relative">
+<img alt="PAMP Gold Bar" class="w-full h-full object-contain p-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBueRv1OTrQn2I64TloiFLjxE5zp9mwLGutwdc_jlTVOek455Fm5uGZkJcU8YP8sqjpnH5PxQK5bVWfhvFAIGBc0LQFX66V-p5GcRhZsTKXQD-mRUXDSAkjVCrjzldxx8dRjTe2PbwrKlkLjffD97F9mg-XFHQZH5mMYz3BwgE8f4e7xyUjes5yHoatoocGrrUUAMrMOQZqQMDgJELhMzy8_0Eu8EizWbwq7NDAWvfk55jn8lmUbZDLJkff0MB41xZ5mk75VPD0ogA">
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-label-sm font-label-sm text-primary uppercase tracking-wider">10g</p>
+<h3 class="text-body-md font-body-md font-bold text-on-background leading-tight">PAMP Gold Minted Bar</h3>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-2">645.00 JOD</p>
+</div>
+</div>
+<!-- Card 4: 20g -->
+<div class="bg-surface-container-lowest rounded-xl p-3 gold-card-shadow flex flex-col relative group overflow-hidden border border-surface-container">
+<div class="aspect-square rounded-lg bg-surface-container-low mb-3 flex items-center justify-center overflow-hidden">
+<div class="w-full h-full relative">
+<img alt="PAMP Gold Bar" class="w-full h-full object-contain p-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBueRv1OTrQn2I64TloiFLjxE5zp9mwLGutwdc_jlTVOek455Fm5uGZkJcU8YP8sqjpnH5PxQK5bVWfhvFAIGBc0LQFX66V-p5GcRhZsTKXQD-mRUXDSAkjVCrjzldxx8dRjTe2PbwrKlkLjffD97F9mg-XFHQZH5mMYz3BwgE8f4e7xyUjes5yHoatoocGrrUUAMrMOQZqQMDgJELhMzy8_0Eu8EizWbwq7NDAWvfk55jn8lmUbZDLJkff0MB41xZ5mk75VPD0ogA">
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-label-sm font-label-sm text-primary uppercase tracking-wider">20g</p>
+<h3 class="text-body-md font-body-md font-bold text-on-background leading-tight">PAMP Gold Minted Bar</h3>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-2">1,282.40 JOD</p>
+</div>
+<button class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Card 5: 1 Ounce -->
+<div class="bg-surface-container-lowest rounded-xl p-3 gold-card-shadow flex flex-col relative group overflow-hidden border border-surface-container">
+<div class="aspect-square rounded-lg bg-surface-container-low mb-3 flex items-center justify-center overflow-hidden">
+<div class="w-full h-full relative">
+<img alt="PAMP Gold Bar" class="w-full h-full object-contain p-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBueRv1OTrQn2I64TloiFLjxE5zp9mwLGutwdc_jlTVOek455Fm5uGZkJcU8YP8sqjpnH5PxQK5bVWfhvFAIGBc0LQFX66V-p5GcRhZsTKXQD-mRUXDSAkjVCrjzldxx8dRjTe2PbwrKlkLjffD97F9mg-XFHQZH5mMYz3BwgE8f4e7xyUjes5yHoatoocGrrUUAMrMOQZqQMDgJELhMzy8_0Eu8EizWbwq7NDAWvfk55jn8lmUbZDLJkff0MB41xZ5mk75VPD0ogA">
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-label-sm font-label-sm text-primary uppercase tracking-wider">31.1g</p>
+<h3 class="text-body-md font-body-md font-bold text-on-background leading-tight">PAMP 1oz Minted Bar</h3>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-2">1,995.00 JOD</p>
+</div>
+<button class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Card 6: 50g (Out of Stock) -->
+<div class="bg-surface-container-lowest rounded-xl p-3 gold-card-shadow flex flex-col relative group overflow-hidden border border-surface-container opacity-90">
+<div class="absolute top-2 left-2 z-10 bg-surface-container-highest px-2 py-0.5 rounded-full">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Out of stock</span>
+</div>
+<div class="aspect-square rounded-lg bg-surface-container-low mb-3 flex items-center justify-center overflow-hidden grayscale">
+<div class="w-full h-full relative">
+<img alt="PAMP Gold Bar" class="w-full h-full object-contain p-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBueRv1OTrQn2I64TloiFLjxE5zp9mwLGutwdc_jlTVOek455Fm5uGZkJcU8YP8sqjpnH5PxQK5bVWfhvFAIGBc0LQFX66V-p5GcRhZsTKXQD-mRUXDSAkjVCrjzldxx8dRjTe2PbwrKlkLjffD97F9mg-XFHQZH5mMYz3BwgE8f4e7xyUjes5yHoatoocGrrUUAMrMOQZqQMDgJELhMzy8_0Eu8EizWbwq7NDAWvfk55jn8lmUbZDLJkff0MB41xZ5mk75VPD0ogA">
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-label-sm font-label-sm text-primary uppercase tracking-wider">50g</p>
+<h3 class="text-body-md font-body-md font-bold text-on-background leading-tight">PAMP Gold Minted Bar</h3>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-2">3,190.00 JOD</p>
+</div>
+</div>
+</div>
+</main><div class="fixed bottom-20 left-container-margin right-container-margin z-40">
+<div class="bg-surface-container-high rounded-xl p-3 shadow-lg border border-outline-variant flex flex-col gap-3">
+<div class="flex items-start gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-white">
+<img alt="AI Assistant" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoX3tPhfdTiRGW-9U2U79xXwn4TDjmZuosHvUKtdkCwtC7TZKiHnGAfbRe4DM5Ge0yX-IUuoGsZ68-X6fu_zoF4SyrEgLzUtXaKlVExIFmp-Hbo9xP7MzTgyY2-lLNEv2JdIlwEEKqTHQ_XdHh6CcJ_wpxCYrXDiU3IOhcyvgOUyDN1jwrdZcnXnn5f5hPhj8plAhQETgej5o85AY3NUq7ek_A6mq4GO0WjdOFPRx7YQVKpXFjKRAUWU17CSdcVMEtJ25QNjnuiII">
+</div>
+<div class="flex-1">
+<p class="text-body-md text-on-surface-variant font-medium">Market Update: Gold has appreciated by 1.2%. A 5g allocation is a common starting point for a balanced portfolio strategy.</p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-2 px-4 rounded-lg font-label-sm hover:opacity-90 active:scale-95 transition-all shadow-sm">
+      Analyze Trend
+    </button>
+</div>
+</div>
+<!-- Bottom Navigation Bar (Generated from JSON guidance) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.04)] bg-surface-container-lowest h-16 flex justify-around items-center px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-label-sm text-label-sm">Payment</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined">local_florist</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Hub</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for tab switching
+        const exploreTab = document.getElementById('explore-tab');
+        const ordersTab = document.getElementById('orders-tab');
+
+        exploreTab.addEventListener('click', () => {
+            exploreTab.classList.add('bg-surface-container-lowest', 'text-primary', 'active-segment');
+            exploreTab.classList.remove('text-on-surface-variant');
+            ordersTab.classList.remove('bg-surface-container-lowest', 'text-primary', 'active-segment');
+            ordersTab.classList.add('text-on-surface-variant');
+        });
+
+        ordersTab.addEventListener('click', () => {
+            ordersTab.classList.add('bg-surface-container-lowest', 'text-primary', 'active-segment');
+            ordersTab.classList.remove('text-on-surface-variant');
+            exploreTab.classList.remove('bg-surface-container-lowest', 'text-primary', 'active-segment');
+            exploreTab.classList.add('text-on-surface-variant');
+        });
+
+        // Add to cart animation
+        document.querySelectorAll('button .material-symbols-outlined').forEach(icon => {
+            if (icon.innerText === 'add') {
+                icon.parentElement.addEventListener('click', function() {
+                    const originalIcon = this.innerHTML;
+                    this.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span>';
+                    this.classList.replace('bg-primary-container', 'bg-tertiary');
+                    setTimeout(() => {
+                        this.innerHTML = originalIcon;
+                        this.classList.replace('bg-tertiary', 'bg-primary-container');
+                    }, 1500);
+                });
+            }
+        });
+    </script>
+
+
+</body></html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrim-overlay {
+            background: rgba(26, 28, 28, 0.4);
+            backdrop-filter: blur(4px);
+        }
+        .spotlight-element {
+            position: relative;
+            z-index: 60;
+            background-color: white !important;
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        .orb-gradient {
+            background: radial-gradient(circle at 30% 30%, #ffdbcc, #a04100);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#a9c7ff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-fixed": "#231a0d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-container": "#572000",
+                        "surface-container-low": "#f3f3f3",
+                        "secondary-container": "#efddc8",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "tertiary-fixed": "#d6e3ff",
+                        "background": "#f9f9f9",
+                        "surface-tint": "#a04100",
+                        "secondary-fixed": "#f2e0cb",
+                        "on-tertiary-fixed-variant": "#264778",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-variant": "#e2e2e2",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-surface": "#2f3131",
+                        "surface": "#f9f9f9",
+                        "primary": "#a04100",
+                        "on-secondary": "#ffffff",
+                        "outline": "#8e7164",
+                        "on-primary-fixed": "#351000",
+                        "on-secondary-container": "#6d6150",
+                        "inverse-primary": "#ffb693",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary": "#695c4c",
+                        "on-surface": "#1a1c1c",
+                        "error": "#ba1a1a",
+                        "tertiary": "#405f91",
+                        "on-tertiary-fixed": "#001b3d",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-container": "#093161",
+                        "primary-fixed": "#ffdbcc",
+                        "primary-container": "#ff6b00",
+                        "outline-variant": "#e2bfb0",
+                        "secondary-fixed-dim": "#d5c4b0",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#7b9ad0",
+                        "on-secondary-fixed-variant": "#504535",
+                        "on-surface-variant": "#5a4136"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "0.75rem",
+                        "grid-gutter": "1rem",
+                        "container-margin": "1rem",
+                        "element-padding": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden" style="overflow: hidden;">
+<!-- Header / TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-margin py-3 bg-surface border-none">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">floor</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary font-extrabold tracking-tight">Kinetic</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4QM38AmsU_vzE9AhLZj9jWw5w9whUKXZPI5xRlHgPgPLPcWdJjUm_b_lGW4STMWynGwua48lYry3_KYyR12hsz67-mL5JDn6a1ZiwZFagMqu90ngYAjZb9e30UwsZgHEWbKWG63czncOBUdGWKK03U_3RxOHSz_JY2KoXjhpF_330R_mM9bkG7OT6HY1O2yv7H4VaG-3xBHjNcp2kfeWY5yAymrgk03lT0n-05JOu3_n3x3m5zNKSKF3_uLq9wdvvVoLZnApWzNE">
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full">notifications</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative pt-16 min-h-screen w-full max-w-md mx-auto bg-surface-container-low px-container-margin pb-24">
+<!-- Progress Bar -->
+<div class="mt-8 mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Onboarding Progress</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">4 of 5</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[80%] rounded-full transition-all duration-700"></div>
+</div>
+</div>
+<!-- Form Section -->
+<div class="space-y-6">
+<header>
+<h2 class="font-headline-md text-headline-md-mobile text-on-surface mb-1">Work Details</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Please provide your current professional information.</p>
+</header>
+<!-- Input Group: Employment Status -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">Employment Status</label>
+<div class="relative">
+<select class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3.5 text-body-lg font-body-lg appearance-none focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option value="full-time">Full-time Employee</option>
+<option value="part-time">Part-time Employee</option>
+<option value="freelance">Freelance / Contractor</option>
+<option value="self-employed">Self-employed</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Input Group: Company Name (The Spotlight Target) -->
+<div class="space-y-2 relative">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">Company Name</label>
+<div class="spotlight-element rounded-xl p-0.5">
+<input class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3.5 text-body-lg font-body-lg focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="e.g. Acme Corp" type="text" value="Design Flow Inc.">
+</div>
+</div>
+<!-- Input Group: Job Title -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">Job Title</label>
+<input class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3.5 text-body-lg font-body-lg focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="e.g. Senior Manager" type="text">
+</div>
+<!-- Input Group: Annual Income -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">Approx. Annual Income</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-lg">$</span>
+<input class="w-full bg-white border border-outline-variant rounded-xl pl-8 pr-4 py-3.5 text-body-lg font-body-lg focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="0.00" type="number">
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Action (Suppressed Nav Shell as per Transactional/Task Rule) -->
+<div class="fixed bottom-0 left-0 right-0 p-container-margin bg-surface-container-lowest z-[70] shadow-[0_-4px_20px_rgba(0,0,0,0.05)] max-w-md mx-auto rounded-t-2xl">
+<button class="w-full bg-primary-container text-white py-4 rounded-full font-bold text-body-lg active:scale-95 transition-transform duration-150 shadow-lg shadow-primary-container/20">
+                Next
+            </button>
+</div>
+</main>
+<!-- Scrim & Guidance Orb -->
+<div class="fixed inset-0 z-50 pointer-events-none">
+<!-- Scrim -->
+<div class="absolute inset-0 scrim-overlay pointer-events-auto"></div>
+<!-- Orb & Message -->
+<div class="absolute bottom-40 left-1/2 -translate-x-1/2 w-full px-container-margin pointer-events-auto">
+<div class="flex flex-col items-center gap-4">
+<!-- Glowing Orb -->
+<div class="w-16 h-16 rounded-full orb-gradient shadow-[0_0_30px_rgba(160,65,0,0.4)] animate-float flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<!-- Bubble Message -->
+<div class="bg-white p-5 rounded-2xl shadow-xl border border-outline-variant text-center">
+<p class="text-on-surface font-body-lg">"Please verify your professional details, including your current employer and designation, to finalize your work profile."</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+        // Simple micro-interaction for the spotlight effect input
+        const spotlightInput = document.querySelector('.spotlight-element input');
+        spotlightInput.focus();
+        
+        // Disable page scroll while on the task-focused onboarding screen
+        document.body.style.overflow = 'hidden';
+    </script>
+
+
+
+
+</body></html>
